@@ -4,6 +4,7 @@ import { Counter } from './features/counter/Counter';
 import './App.css';
 
 function App() {
+  //todo https://mocki.io/v1/af29529b-ae7d-45a6-81c7-abf4fcb1d14d
   return (
     <div className="App">
       <header className="App-header">
