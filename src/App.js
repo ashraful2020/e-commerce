@@ -1,5 +1,6 @@
 import React, { Suspense, useEffect } from "react";
 import "./App.css";
+import Home from "./components/home/home/home";
 import Trending from "./components/home/trendingProduct/trending";
 // import FlashSale from "./components/home/flashSale/flashSale";
 import http from "./services/http.service";
@@ -28,11 +29,7 @@ function App() {
   return (
     <div className="App">
       <Suspense fallback={"Loading........"}>
-        <Navigation />
-        <Carousel />
-        <FlashSale />
-        <SmallDetails />
-        <Trending/>
+       <Home/>
       </Suspense>
     </div>
   );

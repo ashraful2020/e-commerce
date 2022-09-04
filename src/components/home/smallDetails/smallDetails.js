@@ -3,9 +3,9 @@ import React from 'react';
 const SmallDetails = () => {
     return (
       <div>
-        <p className="p-5">
+        <div className="p-5">
           <hr className="bg-blue-400 pt-[1px] " />
-        </p>
+        </div>
         <div className=" flex items-center justify-around ">
           <div className="flex items-center justify-between">
             <svg
