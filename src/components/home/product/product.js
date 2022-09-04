@@ -1,6 +1,6 @@
  
 import "./product.css";
-const Product = ({ id, title, price, img, rating }) => {
+const Product = ({ id, title, price, img, rating }) => { 
   const dispatch = null;
   const addToBasket = () => {
     dispatch({

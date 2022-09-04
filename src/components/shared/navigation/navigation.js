@@ -1,16 +1,17 @@
 import React from "react";
-
+import logo from "../../../assets/logo.png"
 const Navigation = () => {
   const user = null;
   return (
     <div className="my-2 flex items-center justify-around">
-      <p className="w-40">logo</p>
+      <p className="w-40">
+        <img className="h-20 w-20" src={logo} alt="logo"/>
+      </p>
       <form className="w-3/5">
         <div className="flex">
           <div className="relative w-full">
             <input
               type="search"
-              id="search-dropdown"
               className="z-20 block h-14 w-full rounded-sm border border-gray-200   bg-gray-50 p-2.5 text-xl text-gray-900 focus:border-blue-200 focus:outline-none"
               placeholder="Search your product"
               required=""

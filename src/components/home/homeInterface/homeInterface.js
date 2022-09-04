@@ -4,7 +4,7 @@ import "./home.css";
 const HomeInterface = () => {
   return (
     <div>
-      <div className="home" style={{ marginTop: -150 }}>
+      <div className="home max-w-7xl" style={{ marginTop: -150 }}>
         <div className="home-container">
           <div className="home-row">
             <Product
