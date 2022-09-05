@@ -2,6 +2,7 @@ import React, { memo } from "react";
 import img1 from "../../../assets/trending/banner-01.jpg";
 import img2 from "../../../assets/trending/banner-02.jpg";
 import img3 from "../../../assets/trending/banner-03.jpg";
+
 const Trending = memo(() => {
   return (
     <div>
@@ -14,11 +15,7 @@ const Trending = memo(() => {
               description="Lorem ipsum dolor sit amet consectetur adipisicing elit. "
               top={true}
             />
-            <img
-              className="h-80 w-full  object-cover   md:h-full lg:h-full "
-              src={img1}
-              alt="music"
-            />
+            <img src={img1} alt="" />
           </div>
           {/* second */}
           <div className="row-start-3 mx-5 hover:brightness-95 md:mx-0 lg:row-start-1">
@@ -27,11 +24,7 @@ const Trending = memo(() => {
               description="Don't miss this opportunity ."
               top={false}
             />
-            <img
-              className="h-72 w-full object-cover  lg:h-full"
-              src={img2}
-              alt="wealth"
-            />
+            <img src={img2} alt="" />
           </div>
           {/*  third */}
           <div className=" row-start-3 hidden hover:brightness-95   md:block lg:row-start-2">
@@ -40,11 +33,7 @@ const Trending = memo(() => {
               description="Don't miss this opportunity ."
               top={false}
             />
-            <img
-              className="h-72 object-cover  lg:h-full"
-              src={img3}
-              alt="health"
-            />
+            <img src={img3} alt="" />
           </div>
         </div>
       </div>
@@ -54,7 +43,7 @@ const Trending = memo(() => {
 
 export default Trending;
 
-function Arrow() {
+export function Arrow() {
   return (
     <svg
       stroke="currentColor"

@@ -13,11 +13,11 @@ const Carousel = () => {
   return (
     <div>
       <Swiper
-        spaceBetween={30}
+        spaceBetween={300}
         centeredSlides={true}
         autoplay={{
           delay: 4000,
-          disableOnInteraction: false,
+          disableOnInteraction: true,
         }}
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
@@ -33,11 +33,7 @@ const Carousel = () => {
           <img className="home-images" src={img3} alt="" />
         </SwiperSlide>
       </Swiper>
-      {/* <div className="bg-blue-300 rounded-lg flex items-center justify-around">
-        hi there <img src={logo} className="h-4 w-4" alt="" srcset="" />
-        <img src={logo} alt="" srcset="" />
- 
-      </div> */}
+    
     </div>
   );
 };
