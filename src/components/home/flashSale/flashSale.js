@@ -4,6 +4,8 @@ import Timer from "../../custom/timer";
 import { Arrow } from "../trendingProduct/trending";
 const FlashSale = () => {
   const [products, setProducts] = useState([]);
+ 
+
   useEffect(() => {
     axios.get("./flashProduct.json").then((res) => setProducts(res.data));
   }, []);
@@ -20,13 +22,13 @@ const FlashSale = () => {
         </button>
       </div>
       <hr />
-      <div className="grid grid-cols-7 py-4">
+      <div className="grid grid-cols-5 gap-6 py-4">
         {products.map((product) => (
           <div
             key={product.id}
             className="mx-auto p-2 text-left hover:shadow-xl"
           >
-            <img src={product.img} className="mx-auto h-32 w-32" alt="" />
+            <img src={product.img} className="mx-auto md:h-32 md:w-32" alt="" />
             <div>
               <h1 className="font-semibold">{product.name}</h1>
               <h1>

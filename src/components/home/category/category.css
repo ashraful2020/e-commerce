@@ -4,20 +4,20 @@
   /* margin-bottom: -300px; */
   mask-image: linear-gradient(to bottom rgba(0, 0, 0, 1) rgba(0, 0, 0, 0));
 }
-.home {
+/* .home {
   display: flex;
   justify-content: center;
   margin-left: auto;
-  margin-right: auto;
-  /* min-width: 1500px; */
-}
+  margin-right: auto; 
+} */
 .home-row {
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1;
-  margin-left: 5px;
-  margin-right: 5px;
+  margin: 5px;
+  /* margin-left: 5px;
+  margin-right: 5px; */
 }
 
 /*  */

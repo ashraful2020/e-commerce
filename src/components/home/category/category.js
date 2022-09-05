@@ -8,17 +8,14 @@ import img5 from "../../../assets/category/pet.png";
 const Category = memo(() => {
   return (
     <>
-      <div
-        className="home mb-12 bg-gradient-to-b from-neutral-300 via-stone-100 to-white"
-        style={{ marginTop: -220 }}
-      >
-        <div className="home-container mx-32">
-          <div className="home-row">
+      <div className="mb-6 bg-gradient-to-b from-neutral-300 via-stone-100 to-white md:-mt-56">
+        <div className="md:mx-32">
+          <div className="items-center justify-center md:flex">
             <Product id={1} title="Computers & Accessories" img={img1} />
             <Product id={2} title="Electronics " img={img2} />
             <Product id={4} img={img4} title="Health & Personal Care" />
           </div>
-          <div className="home-row">
+          <div className="items-center justify-center md:flex">
             <Product id={3} img={img3} title="For your Fitness Needs" />
             <Product img={img5} id={5} title="Shop Pet supplies" />
           </div>

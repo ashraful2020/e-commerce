@@ -7,7 +7,6 @@ import Countdown from "react-countdown";
 // 30 day = 2592000000  milliseconds
 
 const renderer = ({ days, hours, minutes, seconds, completed }) => {
-  console.log(hours, minutes, seconds);
   if (completed) {
     return <span>You are good to go!</span>;
   } else {
@@ -24,12 +23,10 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
           {hours}
         </button>
         <button className="m-3 bg-orange-400 px-3 py-2 text-white">
-          {" "}
-          {minutes}
+           {minutes}
         </button>
         <button className="m-3 bg-orange-400 px-3 py-2 text-white">
-          {" "}
-          {seconds}
+           {seconds}
         </button>
       </span>
     );
@@ -39,7 +36,8 @@ const Timer = () => {
   return (
     <div>
       <Countdown
-        date={1662325719520 + 86400000}
+        date={1662325719520 + 864000000}
+ 
         renderer={renderer}
         precision={3}
       />

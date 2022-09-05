@@ -18,11 +18,10 @@ const Home = memo(() => {
       <Navigation />
       <Carousel />
       <Category />
-
       <div className="mx-auto lg:max-w-7xl">
+        <SmallDetails />
         <Trending />
         <FlashSale />
-        <SmallDetails />
       </div>
     </Suspense>
   );
