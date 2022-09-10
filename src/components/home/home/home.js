@@ -1,6 +1,6 @@
 import React, {memo, Suspense, lazy} from 'react';
- 
-import Footer from '../../shared/footer/footer';
+
+import Footer from '../../shared/footer/footer'; 
 
 const Navigation = lazy(() => import('../../shared/navigation/navigation'));
 const Carousel = lazy(() => import('../../custom/carousel/carousel'));
@@ -17,17 +17,17 @@ const Home = memo(() => {
   return (
     <Suspense fallback={'Loading........'}>
  
-      {/* <Navigation /> */}
-      {/* <Carousel /> */}
-      {/* <Category /> */}
+      <Navigation />
+      <Carousel />
+      <Category />
       <div className="mx-auto bg-white sm:w-11/12  lg:w-10/12">
-        {/* <SmallDetails /> 
-        <Trending /> */}
+        <SmallDetails />
+        <Trending />
         <FlashSale />
-        {/* <CategoryProduct />
-        <LatestDeal /> */}
+        <LatestDeal />
+        <CategoryProduct />
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </Suspense>
   );
 });

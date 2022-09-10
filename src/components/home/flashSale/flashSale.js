@@ -14,7 +14,7 @@ const FlashSale = () => {
       <div className="flex justify-between pb-2">
         <div className="flex items-center justify-between">
           <h1 className="text-orange-600">On Sale Now</h1>
-          <div className="ml-12 hidden md:block">
+          <div className="ml-12 hidden md:flex items-center">
             <p>Ending in </p> <Timer duration={864000000} />
           </div>
         </div>

@@ -14,20 +14,18 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
       <span className="">
         {days > 0 && (
           <button className="m-1 bg-orange-400 px-3 py-2 text-white">
-            {" "}
             {days ? `${days} days` : null}
           </button>
         )}
         <button className="m-1 bg-orange-400 px-3 py-2 text-white">
-          {" "}
-          {hours}
+          {hours}h
         </button>
         <button className="m-1 bg-orange-400 px-3 py-2 text-white">
-           {minutes}
+           {minutes} min 
         </button>
         {!days &&
         <button className="m-1 bg-orange-400 px-3 py-2 text-white">
-           {seconds}
+           {seconds} sec 
         </button>
         }
       </span>

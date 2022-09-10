@@ -15,6 +15,7 @@ const Carousel = () => {
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
+        loop={true}
         autoplay={{
           delay: 4000,
           disableOnInteraction: true,

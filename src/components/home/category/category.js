@@ -8,7 +8,7 @@ import img5 from "../../../assets/category/pet.png";
 const Category = memo(() => {
   return (
     <>
-      <div className="mb-6 z-auto bg-gradient-to-b from-neutral-300 via-stone-100 to-white lg:-mt-56 md:-mt-32">
+      <div className="mb-6 bg-gradient-to-b from-neutral-300 via-stone-100 to-white lg:-mt-56 md:-mt-32">
         <div className="lg:mx-32">
         <div className="mx-auto">
           <div className="items-center justify-center md:flex">
