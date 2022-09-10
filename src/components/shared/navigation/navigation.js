@@ -64,7 +64,7 @@ const Navigation = () => {
       </div>
       {/*  Mobile menu  */}
       <div>
-        <div className=" fixed bottom-0 left-0  right-0 z-50 block max-h-[2rem] rounded-t-2xl bg-black text-white md:hidden">
+        <div className=" fixed bottom-0 left-0  right-0 z-50 block h-[3rem] rounded-t-2xl bg-black text-white md:hidden">
           <ul className="relative flex justify-around">
             {/* <span
               className={`bg-rose-600 duration-500 ${Menus[active].dis} absolute -top-5 h-16 w-16 rounded-full border-2 border-gray-50`}>
@@ -77,7 +77,7 @@ const Navigation = () => {
                   className="flex flex-col"
                   onClick={() => setActive(i)}>
                   <span
-                    className={` mx-auto cursor-pointer text-lg  duration-500 ${
+                    className={` mx-auto cursor-pointer text-xl  duration-500 ${
                       i === active && '-mt-6 p-2 border-[3px] rounded-full bg-blue-500'
                     }`}> 
                     <menu.icon />{' '}
