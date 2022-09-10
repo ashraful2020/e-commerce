@@ -15,7 +15,7 @@ const FlashSale = () => {
       <div className="flex justify-between pb-2">
         <div className="flex items-center justify-between">
           <h1 className="pr-14 text-orange-600">On Sale Now</h1>
-          <p className="pr-2">Ending in </p> <Timer />
+          <p className="pr-2">Ending in </p> <Timer duration={864000000}/>
         </div>
         <button className="flex h-full border border-orange-500 px-5 py-2 text-orange-500">
           Shop More <Arrow />

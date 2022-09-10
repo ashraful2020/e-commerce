@@ -13,7 +13,7 @@ const Carousel = () => {
   return (
     <div>
       <Swiper
-        spaceBetween={300}
+        spaceBetween={30}
         centeredSlides={true}
         autoplay={{
           delay: 4000,

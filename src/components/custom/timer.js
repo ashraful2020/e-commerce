@@ -11,32 +11,32 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
     return <span>You are good to go!</span>;
   } else {
     return (
-      <span className="text-4xl">
+      <span className="">
         {days > 0 && (
-          <button className="m-3 bg-orange-400 px-3 py-2 text-white">
+          <button className="m-1 bg-orange-400 px-3 py-2 text-white">
             {" "}
             {days ? `${days} days` : null}
           </button>
         )}
-        <button className="m-3 bg-orange-400 px-3 py-2 text-white">
+        <button className="m-1 bg-orange-400 px-3 py-2 text-white">
           {" "}
           {hours}
         </button>
-        <button className="m-3 bg-orange-400 px-3 py-2 text-white">
+        <button className="m-1 bg-orange-400 px-3 py-2 text-white">
            {minutes}
         </button>
-        <button className="m-3 bg-orange-400 px-3 py-2 text-white">
+        <button className="m-1 bg-orange-400 px-3 py-2 text-white">
            {seconds}
         </button>
       </span>
     );
   }
 };
-const Timer = () => {
+const Timer = ({duration}) => {
   return (
     <div>
       <Countdown
-        date={1662325719520 + 864000000}
+        date={1662325719520 + duration }
  
         renderer={renderer}
         precision={3}

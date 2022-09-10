@@ -5,8 +5,7 @@ import img3 from "../../../assets/trending/banner-03.jpg";
 
 const Trending = memo(() => {
   return (
-    <div>
-      <div className="">
+     
         <div className="mx-auto grid grid-flow-col grid-rows-2 gap-5 ">
           {/* first */}
           <div className="col-span-1  row-span-2 hover:brightness-95">
@@ -35,9 +34,7 @@ const Trending = memo(() => {
             />
             <img src={img3} alt="" />
           </div>
-        </div>
-      </div>
-    </div>
+        </div> 
   );
 });
 

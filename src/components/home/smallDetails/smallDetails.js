@@ -2,7 +2,7 @@ import React from 'react';
 
 const SmallDetails = () => {
     return (
-      <div> 
+      <div className='my-9'> 
           <hr className="bg-blue-400 pt-[1px] " />
          
         <div className=" md:flex items-center justify-around m-5 mx-auto">
