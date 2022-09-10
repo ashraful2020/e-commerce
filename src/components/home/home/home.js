@@ -16,7 +16,6 @@ const LatestDeal = lazy(() => import('../latestDeal/latestDeal'));
 const Home = memo(() => {
   return (
     <Suspense fallback={'Loading........'}>
- 
       <Navigation />
       <Carousel />
       <Category />
