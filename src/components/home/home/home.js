@@ -16,17 +16,17 @@ const LatestDeal = lazy(() => import("../latestDeal/latestDeal"));
 const Home = memo(() => {
   return (
     <Suspense fallback={"Loading........"}>
-        <Navigation />
+        {/* <Navigation /> */}
        <Carousel />
-      <Category />
-      <div className="mx-auto w-10/12  bg-white">
+      {/* <Category />
+      <div className="mx-auto lg:w-10/12 sm:w-11/12  bg-white">
       
         <SmallDetails />
         <Trending />
         <FlashSale />
         <CategoryProduct />
       <LatestDeal />
-      </div>  
+      </div>   */}
         <Footer/>
   
     </Suspense>
