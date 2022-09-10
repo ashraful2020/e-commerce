@@ -22,18 +22,20 @@ const FlashSale = () => {
           Shop More <Arrow />
         </button>
       </div>
-          <div className="justify-around items-center md:hidden flex">
-            <p>Ending in </p> <Timer duration={864000000} />
-          </div>
+      <div className="flex items-center justify-around md:hidden">
+        <p>Ending in </p> <Timer duration={864000000} />
+      </div>
       <hr />
-      <div className="grid grid-cols-5 gap-1  py-4 md:gap-4 lg:gap-6">
+      <div className="mx-auto grid grid-cols-3 gap-4 py-4 md:grid-cols-5 lg:gap-6">
         {products.map(product => (
           <div
             key={product.id}
             className="mx-auto text-left hover:shadow-xl lg:p-2">
             <img src={product.img} className="mx-auto md:h-32 md:w-32" alt="" />
             <div>
-              <h1 className="font-semibold">{product.name.slice(0, 15)}</h1>
+              <h1 className="hidden font-semibold md:block">
+                {product.name.slice(0, 15)}
+              </h1>
               <h1>
                 ৳ {product.price - (product.discount / 100) * product.price}
               </h1>
@@ -47,7 +49,6 @@ const FlashSale = () => {
             </div>
           </div>
         ))}
-        {/* <Timer/> */}
       </div>
     </div>
   );
