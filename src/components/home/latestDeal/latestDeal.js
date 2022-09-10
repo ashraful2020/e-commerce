@@ -66,8 +66,8 @@ const LatestDeal = memo(() => {
         </p>
       </div>
       <div className="justify-between gap-4 lg:flex">
-        {products.map((product) => (
-          <div className="mb-5 border-2 p-1 md:flex md:p-5">
+        {products.map((product,_i) => (
+          <div key={_i} className="mb-5 border-2 p-1 md:flex md:p-5">
             <div className="md:w-2/5">
               <img
                 className="mx-auto h-72 w-52 object-cover"

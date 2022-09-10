@@ -67,18 +67,18 @@ export function Arrow() {
 
 function Details({ title, description, top }) {
   return (
-    <div className="relative z-10 w-4/6 text-black">
-      <div className="absolute pt-10 pl-10 text-left">
-        <p className="py-3 uppercase">New season </p>
+    <div className="relative z-10 md:w-4/6 text-black">
+      <div className="absolute pt-2 pl-2 md:pt-6 xl:pt-10 md:pl-6 xl:pl-10 text-left">
+        <p className="lg:py-3 uppercase">New season </p>
         <h1
-          className={`py-2 font-sans ${
-            top ? "text-2xl lg:text-5xl" : "text-md lg:text-3xl"
+          className={`lg:py-2 font-sans ${
+            top ? "text-2xl lg:text-4xl xl:text-5xl" : "text-md lg:text-3xl"
           } font-semibold`}
         >
           {title}
         </h1>
-        <p className="w-4/5 py-3">{description}</p>
-        <div className="flex items-center py-5 font-bold">
+        <p className="lg:w-4/5 lg:py-3">{description}</p>
+        <div className="flex items-center lg:py-5 font-bold">
           Shop Now{" "}
           <div className="ml-5 mt-0.5">
             <Arrow />
