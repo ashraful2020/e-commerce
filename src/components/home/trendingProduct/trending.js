@@ -1,87 +1,61 @@
-import React, { memo } from "react";
-import img1 from "../../../assets/trending/banner-01.jpg";
-import img2 from "../../../assets/trending/banner-02.jpg";
-import img3 from "../../../assets/trending/banner-03.jpg";
+import React, {memo} from 'react';
+import img1 from '../../../assets/trending/banner-01.jpg';
+import img2 from '../../../assets/trending/banner-02.jpg';
+import img3 from '../../../assets/trending/banner-03.jpg';
+import ArrowIcon from '../../custom/icons/ArrowIcon';
 
 const Trending = memo(() => {
   return (
-     
-        <div className="mx-auto grid grid-flow-col grid-rows-2 gap-5 ">
-          {/* first */}
-          <div className="col-span-1  row-span-2 hover:brightness-95">
-            <Details
-              title="Big patterns are back in fashion"
-              description="Lorem ipsum dolor sit amet consectetur adipisicing elit. "
-              top={true}
-            />
-            <img src={img1} alt="" />
-          </div>
-          {/* second */}
-          <div className="row-start-3 mx-5 hover:brightness-95 md:mx-0 lg:row-start-1">
-            <Details
-              title="The latest men's trends this season"
-              description="Don't miss this opportunity ."
-              top={false}
-            />
-            <img src={img2} alt="" />
-          </div>
-          {/*  third */}
-          <div className=" row-start-3 hidden hover:brightness-95   md:block lg:row-start-2">
-            <Details
-              title="Show your fashion with summer shoes"
-              description="Don't miss this opportunity ."
-              top={false}
-            />
-            <img src={img3} alt="" />
-          </div>
-        </div> 
+    <div className="mx-auto grid grid-flow-col grid-rows-2 gap-5 ">
+      {/* first */}
+      <div className="col-span-1  row-span-2 hover:brightness-95">
+        <Details
+          title="Big patterns are back in fashion"
+          description="Lorem ipsum dolor sit amet consectetur adipisicing elit. "
+          top={true}
+        />
+        <img src={img1} alt="" />
+      </div>
+      {/* second */}
+      <div className="row-start-3 mx-5 hover:brightness-95 md:mx-0 lg:row-start-1">
+        <Details
+          title="The latest men's trends this season"
+          description="Don't miss this opportunity ."
+          top={false}
+        />
+        <img src={img2} alt="" />
+      </div>
+      {/*  third */}
+      <div className=" row-start-3 hidden hover:brightness-95   md:block lg:row-start-2">
+        <Details
+          title="Show your fashion with summer shoes"
+          description="Don't miss this opportunity ."
+          top={false}
+        />
+        <img src={img3} alt="" />
+      </div>
+    </div>
   );
 });
 
 export default Trending;
 
-export function Arrow() {
+function Details({title, description, top}) {
   return (
-    <svg
-      stroke="currentColor"
-      fill="currentColor"
-      strokeWidth={0}
-      viewBox="0 0 16 16"
-      height="1em"
-      width="1em"
-      className="text-2xl"
-    >
-      <path
-        fillRule="evenodd"
-        d="M10.146 4.646a.5.5 0 01.708 0l3 3a.5.5 0 010 .708l-3 3a.5.5 0 01-.708-.708L12.793 8l-2.647-2.646a.5.5 0 010-.708z"
-        clipRule="evenodd"
-      />
-      <path
-        fillRule="evenodd"
-        d="M2 8a.5.5 0 01.5-.5H13a.5.5 0 010 1H2.5A.5.5 0 012 8z"
-        clipRule="evenodd"
-      />
-    </svg>
-  );
-}
-
-function Details({ title, description, top }) {
-  return (
-    <div className="relative z-10 md:w-4/6 text-black">
-      <div className="absolute pt-2 pl-2 md:pt-6 xl:pt-10 md:pl-6 xl:pl-10 text-left">
-        <p className="lg:py-3 uppercase">New season </p>
+    <div className="relative z-10 text-black md:w-4/6">
+      <div className="absolute pt-2 pl-2 text-left md:pt-6 md:pl-6 xl:pt-10 xl:pl-10">
+        <p className="uppercase lg:py-3">New season </p>
         <h1
-          className={`lg:py-2 font-sans ${
-            top ? "text-2xl lg:text-4xl xl:text-5xl" : "text-md lg:text-3xl"
-          } font-semibold`}
-        >
+          className={`font-sans lg:py-2 ${
+            top ? 'text-2xl lg:text-4xl xl:text-5xl' : 'text-md lg:text-3xl'
+          } font-semibold`}>
           {title}
         </h1>
         <p className="lg:w-4/5 lg:py-3">{description}</p>
-        <div className="flex items-center lg:py-5 font-bold">
-          Shop Now{" "}
+        <div className="flex items-center font-bold lg:py-5">
+          Shop Now{' '}
           <div className="ml-5 mt-0.5">
-            <Arrow />
+            <ArrowIcon />
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, {memo, useState, useEffect} from 'react';
-import Timer from '../../custom/timer';
-import {Arrow} from '../trendingProduct/trending';
+import ArrowIcon from '../../custom/icons/ArrowIcon';
+import Timer from '../../custom/timer'; 
 const FlashSale = () => {
   const [products, setProducts] = useState([]);
 
@@ -19,7 +19,7 @@ const FlashSale = () => {
           </div>
         </div>
         <button className="flex h-full border border-orange-500 px-5 py-2 text-orange-500">
-          Shop More <Arrow />
+          Shop More <ArrowIcon />
         </button>
       </div>
       <div className="flex items-center justify-around md:hidden">
@@ -43,7 +43,7 @@ const FlashSale = () => {
                 <h1 className="text-gray-400 line-through">
                   ৳ {product.price}
                 </h1>
-                <Arrow />
+                <ArrowIcon />
                 <h1> {product.discount} %</h1>
               </div>
             </div>

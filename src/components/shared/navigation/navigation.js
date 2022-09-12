@@ -1,13 +1,17 @@
 import React, {useState} from 'react';
 import logo from '../../../assets/logo.png';
+ 
+import HomeIcon from '../../custom/icons/homeIcon';
+import CategoryIcon from '../../custom/icons/categoryIcon';
+import CartIcon from '../../custom/icons/cartIcon';
+import profileIcon from '../../custom/icons/profileIcon';
 
-import {AiFillHome} from 'react-icons/ai';
 const Navigation = () => {
   const Menus = [
-    {name: 'Home', icon: AiFillHome, dis: '-translate-x-[7.3rem]'},
-    {name: 'Profile', icon: AiFillHome, dis: '-translate-x-10'},
-    {name: 'Message', icon: AiFillHome, dis: 'translate-x-10'},
-    {name: 'Photos', icon: AiFillHome, dis: 'translate-x-[7.2rem]'},
+    {name: 'Home', icon: HomeIcon , link:"home"},
+    {name: 'Category', icon: CategoryIcon , link:"category"},
+    {name: 'Cart', icon: CartIcon , link:"cart"},
+    {name: 'Account', icon: profileIcon , link:"account"},
   ];
   const [active, setActive] = useState(0);
   const user = null;
@@ -58,27 +62,22 @@ const Navigation = () => {
             </p>
           </div>
           <div></div>
-
-          <p>🛒</p>
+<CartIcon/>
         </div>
       </div>
       {/*  Mobile menu  */}
       <div>
-        <div className=" fixed bottom-0 left-0  right-0 z-50 block h-[3rem] rounded-t-2xl bg-black text-white md:hidden">
+        <div className=" fixed bottom-0 left-0  right-0 z-50 block h-[3rem] rounded-t-lg  bg-gray-800 text-white md:hidden">
           <ul className="relative flex justify-around">
-            {/* <span
-              className={`bg-rose-600 duration-500 ${Menus[active].dis} absolute -top-5 h-16 w-16 rounded-full border-2 border-gray-50`}>
-              <span className="absolute top-4 -left-[18px] h-3.5 w-3.5 rounded-tr-[11px] bg-transparent"></span>
-              <span className="absolute top-4 -right-[18px] h-3.5 w-3.5 rounded-tl-[11px] bg-transparent"></span>
-            </span> */}
+           
             {Menus.map((menu, i) => (
-              <li key={i} className="w-16">
+              <li key={i} className="w-16 p-1">
                 <a
                   className="flex flex-col"
                   onClick={() => setActive(i)}>
                   <span
                     className={` mx-auto cursor-pointer text-xl  duration-500 ${
-                      i === active && '-mt-6 p-2 border-[3px] rounded-full bg-blue-500'
+                      i === active && '-mt-6 p-2 border-[3px] border-transparent rounded-full bg-blue-500'
                     }`}> 
                     <menu.icon />{' '}
                   </span>
@@ -101,3 +100,5 @@ const Navigation = () => {
 };
 
 export default Navigation;
+
+

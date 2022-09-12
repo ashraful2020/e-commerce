@@ -23,11 +23,11 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
         <button className="m-1 bg-orange-400 px-3 py-2 text-white">
            {minutes} min 
         </button>
-        {!days &&
-        <button className="m-1 bg-orange-400 px-3 py-2 text-white">
+     
+        <button className="m-1 bg-orange-400 px-3 py-2 text-white hidden md:inline">
            {seconds} sec 
         </button>
-        }
+  
       </span>
     );
   }

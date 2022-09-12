@@ -11,7 +11,7 @@ import "./carousel.css";
 
 const Carousel = () => {
   return (
-    <div>
+    <div className="-z-50">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
