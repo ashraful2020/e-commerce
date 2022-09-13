@@ -1,10 +1,10 @@
-import React, {useRef, useState} from 'react';
+import React, { useState} from 'react';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
-import {FreeMode, Navigation, Thumbs} from 'swiper';
+import {FreeMode, Navigation, Thumbs,Pagination} from 'swiper';
 
 export default function ProductImage() {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
@@ -19,15 +19,17 @@ export default function ProductImage() {
     <div>
       <Swiper
         style={{
-          '--swiper-navigation-color': '#fff',
+          '--swiper-navigation-color': '#000',
           '--swiper-pagination-color': '#fff',
+          '--swiper-navigation-size':"2rem",
         }}
         loop={true}
+        
         spaceBetween={10}
         navigation={true}
         thumbs={{swiper: thumbsSwiper}}
-        modules={[FreeMode, Navigation, Thumbs]}
-        className="mySwiper2 mb-6">
+        modules={[FreeMode, Navigation, Thumbs,Pagination]}
+        className="mySwiper2">
         {/* //? Load image  */}
         {images.map((img, _i) => (
           <SwiperSlide key={_i}>
@@ -37,12 +39,12 @@ export default function ProductImage() {
       </Swiper>
       <Swiper
         onSwiper={setThumbsSwiper}
-        spaceBetween={20}
+        spaceBetween={2}
         slidesPerView={4}
         freeMode={true}
         watchSlidesProgress={true}
         modules={[FreeMode, Navigation, Thumbs]}
-        className="mySwiper w-96">
+        className="mySwiper bg-white p-4 border border-gray-600 m-2">
         {/* //? Load image  */}
 
         {images.map((img, _i) => (

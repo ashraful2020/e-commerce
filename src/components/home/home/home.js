@@ -1,4 +1,5 @@
 import React, {memo, Suspense, lazy} from 'react';
+import Button from '../../custom/components/Button';
 
 import Footer from '../../shared/footer/footer';
 import ProductDetail from '../productDetail/productDetail';
@@ -17,8 +18,7 @@ const LatestDeal = lazy(() => import('../latestDeal/latestDeal'));
 const Home = memo(() => {
   return (
     <Suspense fallback={'Loading........'}>
-      <ProductDetail />
-      {/*   <Navigation />
+      <Navigation />
       <Carousel />
       <Category />
       <div className="mx-auto bg-white sm:w-11/12  lg:w-10/12">
@@ -28,7 +28,7 @@ const Home = memo(() => {
         <LatestDeal />
         <CategoryProduct />
       </div>
-      <Footer /> */}
+      <Footer />
     </Suspense>
   );
 });
