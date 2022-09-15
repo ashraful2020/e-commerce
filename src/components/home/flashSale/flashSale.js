@@ -15,7 +15,7 @@ const FlashSale = () => {
         <div className="flex items-center justify-between">
           <h1 className="text-orange-600">On Sale Now</h1>
           <div className="ml-12 hidden md:flex items-center">
-            <p>Ending in </p> <Timer duration={864000000} />
+            <p>Ending in </p> <Timer duration={8640000000} />
           </div>
         </div>
         <button className="flex h-full border border-orange-500 px-5 py-2 text-orange-500">
@@ -23,7 +23,7 @@ const FlashSale = () => {
         </button>
       </div>
       <div className="flex items-center justify-around md:hidden">
-        <p>Ending in </p> <Timer duration={864000000} />
+        <p>Ending in </p> <Timer duration={8640000000} />
       </div>
       <hr />
       <div className="mx-auto grid grid-cols-3 gap-4 py-4 md:grid-cols-5 lg:gap-6">

@@ -37,7 +37,6 @@ const Timer = ({duration}) => {
     <div>
       <Countdown
         date={1662325719520 + duration }
- 
         renderer={renderer}
         precision={3}
       />

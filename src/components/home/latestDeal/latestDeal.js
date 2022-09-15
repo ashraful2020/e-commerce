@@ -2,6 +2,7 @@ import React, { memo } from "react";
 import Timer from "../../custom/timer";
 
 const LatestDeal = memo(() => {
+
   const products = [
     {
       id: "be7a4d0a-c681-416c-ab8d-f9be28223f4e",
@@ -9,7 +10,7 @@ const LatestDeal = memo(() => {
       name: "adidas Z.N.E. 01 True Wireless Earbuds",
       seller: "Addidas",
       price: 142,
-      duration:864000000,
+      duration:1599000000,
       stock: 11,
       ratings: 5,
       ratingsCount: 22,
@@ -32,7 +33,7 @@ const LatestDeal = memo(() => {
       category: "Bottle",
       name: "Steel Bottle 600 ML",
       seller: "Addidas",
-      duration:971000000,
+      duration:1599000000,
       price: 23,
       stock: 11,
       ratings: 5,
@@ -52,6 +53,7 @@ const LatestDeal = memo(() => {
         "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/e2d870a680644e4d98e9ac7d0008ecc7_9366/Steel_Metal_Bottle_600_ML_Yellow_EX7307_01_standard.jpg",
     },
   ];
+  
   return (
     <div>
       <div className="my-12 items-center justify-center text-left md:flex">

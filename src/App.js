@@ -1,6 +1,7 @@
 import React, {Suspense} from 'react';
 import './App.css';
 import {Route, Routes} from 'react-router-dom';
+import AuthProvider from './app/AuthProvider';
 const Home = React.lazy(() => import('./components/home/home/home'));
 const ProductDetail = React.lazy(() =>
   import('./components/home/productDetail/productDetail'),
@@ -15,7 +16,7 @@ function App() {
   //   http.get("").then((res) => console.log(res));
   // }, []);
   return (
-    <div className="App">
+    <AuthProvider className="App"> 
       <Suspense fallback={'Loading........'}>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -27,7 +28,7 @@ function App() {
           <Route path="category" element={'Category Page'} />
         </Routes>
       </Suspense>
-    </div>
+    </AuthProvider>
   );
 }
 

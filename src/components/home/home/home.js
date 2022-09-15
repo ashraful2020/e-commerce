@@ -15,6 +15,9 @@ const CategoryProduct = lazy(() =>
 const Category = lazy(() => import('../category/category'));
 const LatestDeal = lazy(() => import('../latestDeal/latestDeal'));
 // const  a = lazy(() => import(""));
+// const  a = lazy(() => import(""));
+// const  a = lazy(() => import(""));
+// const  a = lazy(() => import(""));
 const Home = memo(() => {
   return (
     <Suspense fallback={'Loading........'}>
