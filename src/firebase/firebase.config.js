@@ -1,10 +1,10 @@
 const firebaseConfig = {
-    apiKey:process.env.REACT_APP_API_KEY,
-    authDomain:process.env.REACT_APP_AUTH_DOMAIN,
-    projectId:process.env.REACT_APP_PROJECT_ID,
-    storageBucket:process.env.REACT_APP_STORAGE_BUCKET,
-    messagingSenderId:process.env.REACT_APP_MESSAGING_SENDER_ID,
-    appId:process.env.REACT_APP_APP_ID,
-  };
-  
-  export default  firebaseConfig;
+  apiKey: 'AIzaSyCcLaMG6GD6A7PxsfvegnNRoUsM3F7xMvw',
+  authDomain: 'amarstore20.firebaseapp.com',
+  projectId: 'amarstore20',
+  storageBucket: 'amarstore20.appspot.com',
+  messagingSenderId: '678140449554',
+  appId: '1:678140449554:web:24265966aaf2b0f13419cb',
+};
+ 
+export default firebaseConfig;
