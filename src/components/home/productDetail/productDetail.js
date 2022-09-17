@@ -37,7 +37,7 @@ const ProductDetail = memo(() => {
 
           <div className="flex justify-evenly">
             <Button color="bg-sky-500" title="Buy Now " />
-            <Button cartIcon={true} color="bg-orange-500" title="Add To cart" />
+            <Button icon="cart" color="bg-orange-500" title="Add To cart" />
           </div>
         </div>
       </div>

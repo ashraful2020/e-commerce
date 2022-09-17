@@ -1,26 +1,29 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import logo from '../../../assets/logo.png';
- 
 import HomeIcon from '../../custom/icons/homeIcon';
 import CategoryIcon from '../../custom/icons/categoryIcon';
 import CartIcon from '../../custom/icons/cartIcon';
 import profileIcon from '../../custom/icons/profileIcon';
+import { Link } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 
 const Navigation = () => {
   const Menus = [
-    {name: 'Home', icon: HomeIcon , link:"home"},
-    {name: 'Category', icon: CategoryIcon , link:"category"},
-    {name: 'Cart', icon: CartIcon , link:"cart"},
-    {name: 'Account', icon: profileIcon , link:"account"},
+    { name: 'Home', icon: HomeIcon, link: "/" },
+    { name: 'Category', icon: CategoryIcon, link: "/category" },
+    { name: 'Cart', icon: CartIcon, link: "/cart" },
+    { name: 'Account', icon: profileIcon, link: "/account" },
   ];
   const [active, setActive] = useState(0);
-  const user = null;
+  const { user } = useAuth();
+  console.log("🚀 ~ file: navigation.js ~ line 20 ~ Navigation ~ user", user.displayName)
+ 
   return (
     <div>
       <div className="my-2 hidden items-center justify-around md:flex">
-        <p className="w-40">
+        <Link to="/" className="w-40">
           <img className="h-20 w-20" src={logo} alt="logo" />
-        </p>
+        </Link>
         <form className="w-3/5">
           <div className="flex">
             <div className="relative w-full">
@@ -32,7 +35,7 @@ const Navigation = () => {
               />
 
               <button
-                type="submit"
+                // type="submit"
                 className="absolute top-0 right-0 h-14 rounded-sm bg-blue-700 p-2.5 px-8 text-sm font-medium text-white ">
                 <svg
                   aria-hidden="true"
@@ -53,43 +56,42 @@ const Navigation = () => {
           </div>
         </form>
         <div className="flex w-52 justify-around">
-          <div>
+          <Link to={`${user.email ?'/account':'/login'}`}>
             <p className="text-left font-serif text-xs leading-3">
-              Hello , {user ? user.displayName : 'sign in'}
+              Hello , {user.email ? user.displayName : 'sign in'}
             </p>
             <p className="text-left text-lg font-bold leading-3">
               Account & Lists
             </p>
-          </div>
-          <div></div>
-<CartIcon/>
+          </Link>
+          <Link to="/cart">
+            <CartIcon />
+          </Link>
         </div>
       </div>
       {/*  Mobile menu  */}
       <div>
         <div className=" fixed bottom-0 left-0  right-0 z-50 block h-[3rem] rounded-t-lg  bg-gray-800 text-white md:hidden">
           <ul className="relative flex justify-around">
-           
+
             {Menus.map((menu, i) => (
               <li key={i} className="w-16 p-1">
-                <a
+                <Link to={menu.link}
                   className="flex flex-col"
                   onClick={() => setActive(i)}>
                   <span
-                    className={` mx-auto cursor-pointer text-xl  duration-500 ${
-                      i === active && '-mt-6 p-2 border-[3px] border-transparent rounded-full bg-blue-500'
-                    }`}> 
+                    className={` mx-auto cursor-pointer text-xl  duration-500 ${i === active && '-mt-6 p-2 border-[3px] border-transparent rounded-full bg-blue-500'
+                      }`}>
                     <menu.icon />{' '}
                   </span>
                   <span
-                    className={` text-xs ${
-                      active === i
+                    className={` text-xs ${active === i
                         ? 'translate-y-5 pt-1 -mt-6 opacity-100 duration-700'
                         : 'translate-y-100 opacity-0'
-                    } `}>
+                      } `}>
                     {menu.name}
                   </span>
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

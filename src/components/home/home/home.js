@@ -1,6 +1,5 @@
 import React, {memo, Suspense, lazy} from 'react';
 import Button from '../../custom/components/Button';
-
 import Footer from '../../shared/footer/footer';
 import ProductDetail from '../productDetail/productDetail';
 import ProductImage from '../productDetail/productImage';

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, {memo, useState, useEffect} from 'react';
+import { Link } from 'react-router-dom';
 import ArrowIcon from '../../custom/icons/ArrowIcon';
 import Timer from '../../custom/timer'; 
 const FlashSale = () => {
@@ -28,7 +29,7 @@ const FlashSale = () => {
       <hr />
       <div className="mx-auto grid grid-cols-3 gap-4 py-4 md:grid-cols-5 lg:gap-6">
         {products.map(product => (
-          <div
+          <Link to={`/product/${product.id}`}
             key={product.id}
             className="mx-auto text-left hover:shadow-xl lg:p-2">
             <img src={product.img} className="mx-auto md:h-32 md:w-32" alt="" />
@@ -47,7 +48,7 @@ const FlashSale = () => {
                 <h1> {product.discount} %</h1>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
