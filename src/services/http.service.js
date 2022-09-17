@@ -1,6 +1,6 @@
 import axios from "axios";
 const axiosConfig = {
-  baseURL: "https://mocki.io/v1/af29529b-ae7d-45a6-81c7-abf4fcb1d14d",
+  baseURL: "http://localhost:5000/api/v1",
   timeout: 20000,
 };
 const instance = axios.create(axiosConfig);

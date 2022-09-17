@@ -11,7 +11,7 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
     return <span>You are good to go!</span>;
   } else {
     return (
-      <span className="">
+      <span>
         {days > 0 && (
           <button className="m-1 bg-orange-400 px-3 py-2 text-white">
             {days ? `${days} days` : null}
@@ -44,4 +44,4 @@ const Timer = ({duration}) => {
   );
 };
 
-export default memo(Timer);
+export default Timer;

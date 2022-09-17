@@ -16,22 +16,26 @@ const Navigation = () => {
   ];
   const [active, setActive] = useState(0);
   const { user } = useAuth();
-  console.log("🚀 ~ file: navigation.js ~ line 20 ~ Navigation ~ user", user.displayName)
- 
+  const [searchValue, setSearchValue] = useState('');
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+    console.log(searchValue);
+  }
   return (
     <div>
       <div className="my-2 hidden items-center justify-around md:flex">
         <Link to="/" className="w-40">
           <img className="h-20 w-20" src={logo} alt="logo" />
         </Link>
-        <form className="w-3/5">
+        <form className="w-3/5" onSubmit={handleOnSubmit}>
           <div className="flex">
             <div className="relative w-full">
               <input
                 type="search"
                 className="z-20 block h-14 w-full rounded-sm border border-gray-200   bg-gray-50 p-2.5 text-xl text-gray-900 focus:border-blue-200 focus:outline-none"
                 placeholder="Search your product"
-                required=""
+                required={true}
+                onChange={(e) => setSearchValue(e.target.value)}
               />
 
               <button
@@ -56,7 +60,7 @@ const Navigation = () => {
           </div>
         </form>
         <div className="flex w-52 justify-around">
-          <Link to={`${user.email ?'/account':'/login'}`}>
+          <Link to={`${user.email ? '/account' : '/login'}`}>
             <p className="text-left font-serif text-xs leading-3">
               Hello , {user.email ? user.displayName : 'sign in'}
             </p>
@@ -86,8 +90,8 @@ const Navigation = () => {
                   </span>
                   <span
                     className={` text-xs ${active === i
-                        ? 'translate-y-5 pt-1 -mt-6 opacity-100 duration-700'
-                        : 'translate-y-100 opacity-0'
+                      ? 'translate-y-5 pt-1 -mt-6 opacity-100 duration-700'
+                      : 'translate-y-100 opacity-0'
                       } `}>
                     {menu.name}
                   </span>

@@ -5,6 +5,7 @@ import img2 from '../../../assets/category/electronics.png';
 import img3 from '../../../assets/category/fitness.png';
 import img4 from '../../../assets/category/personal_and_health_care.png';
 import img5 from '../../../assets/category/pet.png';
+import { Link, useSearchParams } from 'react-router-dom';
 const Category = memo(() => {
   return (
     <>
@@ -27,15 +28,16 @@ const Category = memo(() => {
 
 export default Category;
 
-function Product({img, title, none}) {
+function Product({ img, title, none }) { 
+  const name = "Ashraful";
   return (
-    <div
+    <Link to={`/category?name=${name}`} state={name}
       className={`z-10 md:m-5 mx-auto mb-5 bg-white text-left shadow-2xl  shadow-indigo-100 lg:px-4 ${
         none && 'hidden lg:block'
       } `}>
       <h1 className="font-semibold lg:text-2xl">{title}</h1>
       <img className="h-full w-full" src={img} alt="" srcSet="" />
       <p className="  text-sm text-blue-500 underline">Explore now</p>
-    </div>
+    </Link>
   );
 }

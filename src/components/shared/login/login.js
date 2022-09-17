@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import Button from '../../custom/components/Button';
@@ -11,6 +11,12 @@ const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const uri = location?.state?.from?.pathname || "/";
+  // Change the application title
+  useEffect(() => {
+    document.title = "Login | Amar store"
+  }, []);
+  
+  // Login with Google accounts 
   const handleGoogleLogin = () => {
     signInWithGoogle()
       .then(result => {

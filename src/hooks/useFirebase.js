@@ -68,7 +68,8 @@ const useFirebase = () => {
     user,
     setUser,
     saveUserName,
-     isLoading, setIsLoading
+    isLoading,
+    setIsLoading
   };
 };
 export default useFirebase;

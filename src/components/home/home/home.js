@@ -1,8 +1,5 @@
-import React, {memo, Suspense, lazy} from 'react';
-import Button from '../../custom/components/Button';
-import Footer from '../../shared/footer/footer';
-import ProductDetail from '../productDetail/productDetail';
-import ProductImage from '../productDetail/productImage';
+import React, { memo, Suspense, lazy } from 'react';
+import Loader from '../../shared/loader/loader'; 
 const Navigation = lazy(() => import('../../shared/navigation/navigation'));
 const Carousel = lazy(() => import('../../custom/carousel/carousel'));
 const FlashSale = lazy(() => import('../flashSale/flashSale'));
@@ -13,13 +10,13 @@ const CategoryProduct = lazy(() =>
 );
 const Category = lazy(() => import('../category/category'));
 const LatestDeal = lazy(() => import('../latestDeal/latestDeal'));
+const Footer = lazy(() => import("../../shared/footer/footer"));
 // const  a = lazy(() => import(""));
 // const  a = lazy(() => import(""));
 // const  a = lazy(() => import(""));
-// const  a = lazy(() => import(""));
-const Home = memo(() => {
+const Home = () => {
   return (
-    <Suspense fallback={'Loading........'}>
+    <Suspense fallback={<Loader/>}>
       <Navigation />
       <Carousel />
       <Category />
@@ -33,6 +30,6 @@ const Home = memo(() => {
       <Footer />
     </Suspense>
   );
-});
+} ;
 
 export default Home;
