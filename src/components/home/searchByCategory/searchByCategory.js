@@ -1,13 +1,16 @@
 import React, { memo } from 'react';
 import { useLocation } from 'react-router-dom';
+import http from '../../../services/http.service';
 
 const SearchByCategory = memo(() => {
     const location = useLocation();
+    const uri = location.pathname + location.search;
+    console.log(uri);
     console.log(location)
-    console.log(location.state)
+    http.get(uri).then((res) => console.log(res));
     return (
         <div>
-            {location.state} <br/>
+            {location.state} <br />
             hello
         </div>
     );

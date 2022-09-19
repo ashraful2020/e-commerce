@@ -1,4 +1,5 @@
 import React, { memo, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { Autoplay, Navigation, Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -60,10 +61,12 @@ const CategoryProduct = memo(() => {
           >
             {productData.map((data) => (
               <SwiperSlide key={data._id}>
-                <div>
-                  <img src={data.img} alt="" srcSet="" />
-                  <h1>Category Name </h1>
-                </div>
+                <Link to={`/category?name=${data.name}`}>
+                  <div>
+                    <img src={data.img} alt="" srcSet="" />
+                    <h1>Category Name  </h1>
+                  </div>
+                </Link>
               </SwiperSlide>
             ))}
           </Swiper>

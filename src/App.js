@@ -2,7 +2,7 @@ import React, { Suspense, lazy } from 'react';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import AuthProvider from './app/AuthProvider';   
-const Home = lazy(() => import('./components/home/home/home'));
+const Home = lazy(() => import('./components/home/home'));
 const Login = lazy(() => import("./components/shared/login/login"));
 const Register = lazy(() => import("./components/shared/register/register"));
 const Cart = lazy(() => import("./components/cart/cart"));
@@ -35,6 +35,7 @@ function App() {
           <Route path="/flash-product/:id" element={<ProductDetail />} />
           <Route path="/latest-deal/:id" element={<ProductDetail />} />
           <Route path="/contact" element={'contact Page'} />
+          <Route path="/search-by-category" element={'search-by-category'} />
           <Route path="/cart" element={<PrivateRoute>
             <Cart />
           </PrivateRoute>} />
