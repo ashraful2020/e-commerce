@@ -1,8 +1,7 @@
 import React, { Suspense, lazy } from 'react';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
-import AuthProvider from './app/AuthProvider';
-import http from './services/http.service';
+import AuthProvider from './app/AuthProvider';   
 const Home = lazy(() => import('./components/home/home/home'));
 const Login = lazy(() => import("./components/shared/login/login"));
 const Register = lazy(() => import("./components/shared/register/register"));
@@ -16,7 +15,7 @@ const Loader = lazy(() => import("./components/shared/loader/loader"));
 const ProductDetail = React.lazy(() =>
   import('./components/home/productDetail/productDetail'),
 );
-function App() {
+function App() { 
   // http.get("/product").then((res) => console.log(res)); 
   // http.get("/product/632056db75cb9a5e1ada159e").then((res) => console.log(res)); 
   // http.get("/category").then((res) => console.log(res)); 
@@ -33,6 +32,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={'About Page'} />
           <Route path="/product/:id" element={<ProductDetail />} />
+          <Route path="/flash-product/:id" element={<ProductDetail />} />
+          <Route path="/latest-deal/:id" element={<ProductDetail />} />
           <Route path="/contact" element={'contact Page'} />
           <Route path="/cart" element={<PrivateRoute>
             <Cart />
@@ -44,6 +45,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="*" element={"Error Page"} />
+
         </Routes>
       </Suspense>
     </AuthProvider>

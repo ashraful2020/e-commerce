@@ -11,7 +11,7 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
     return <span>You are good to go!</span>;
   } else {
     return (
-      <span>
+      <span className="">
         {days > 0 && (
           <button className="m-1 bg-orange-400 px-3 py-2 text-white">
             {days ? `${days} days` : null}
@@ -21,22 +21,26 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
           {hours}h
         </button>
         <button className="m-1 bg-orange-400 px-3 py-2 text-white">
-           {minutes} min 
+          {minutes} min
         </button>
-     
+
         <button className="m-1 bg-orange-400 px-3 py-2 text-white hidden md:inline">
-           {seconds} sec 
+          {seconds} sec
         </button>
-  
+
       </span>
     );
   }
 };
-const Timer = ({duration}) => {
+const Timer = ({ starting, ending }) => {
+  if (!starting && !ending) {
+    return "Loading...";
+  }
   return (
     <div>
       <Countdown
-        date={1662325719520 + duration }
+        // date={1662325719520 + duration }
+        date={starting + ending}
         renderer={renderer}
         precision={3}
       />
@@ -44,4 +48,4 @@ const Timer = ({duration}) => {
   );
 };
 
-export default Timer;
+export default memo(Timer);

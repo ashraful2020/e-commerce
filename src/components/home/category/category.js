@@ -1,24 +1,25 @@
-import React, {memo} from 'react';
+import React, { memo } from 'react';
 import './category.css';
 import img1 from '../../../assets/category/computer.png';
 import img2 from '../../../assets/category/electronics.png';
 import img3 from '../../../assets/category/fitness.png';
 import img4 from '../../../assets/category/personal_and_health_care.png';
 import img5 from '../../../assets/category/pet.png';
-import { Link, useSearchParams } from 'react-router-dom';
+
+import { Link } from 'react-router-dom';
 const Category = memo(() => {
   return (
     <>
       <div className="mb-6 bg-gradient-to-b from-neutral-300 via-stone-100 to-white md:-mt-32 lg:-mt-56">
         <div className="mx-auto lg:w-4/5">
           <div className="items-center justify-center md:flex">
-            <Product img={img1} title="Computers & Accessories" />
-            <Product img={img2} title="Electronics " />
-            <Product none={true} img={img4} title="Health & Personal Care" />
+            <Product category="computer" img={img1} title="Computers & Accessories" />
+            <Product category="electronics" img={img2} title="Electronics " />
+            <Product category="health" none={true} img={img4} title="Health & Personal Care" />
           </div>
           <div className="items-center justify-center md:flex">
-            <Product img={img3} title="For your Fitness Needs" />
-            <Product none={true} img={img5} title="Shop Pet supplies" />
+            <Product category="fitness" img={img3} title="For your Fitness Needs" />
+            <Product category="pet" none={true} img={img5} title="Shop Pet supplies" />
           </div>
         </div>
       </div>
@@ -28,13 +29,11 @@ const Category = memo(() => {
 
 export default Category;
 
-function Product({ img, title, none }) { 
-  const name = "Ashraful";
+function Product({ img, title, none,category }) {
   return (
-    <Link to={`/category?name=${name}`} state={name}
-      className={`z-10 md:m-5 mx-auto mb-5 bg-white text-left shadow-2xl  shadow-indigo-100 lg:px-4 ${
-        none && 'hidden lg:block'
-      } `}>
+    <Link to={`/category?name=${category}`} state={category}
+      className={`z-10 md:m-5 mx-auto mb-5 bg-white text-left shadow-2xl  shadow-indigo-100 lg:px-4 ${none && 'hidden lg:block'
+        } `}>
       <h1 className="font-semibold lg:text-2xl">{title}</h1>
       <img className="h-full w-full" src={img} alt="" srcSet="" />
       <p className="  text-sm text-blue-500 underline">Explore now</p>

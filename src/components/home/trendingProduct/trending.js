@@ -5,11 +5,30 @@ import img2 from '../../../assets/trending/banner-02.jpg';
 import img3 from '../../../assets/trending/banner-03.jpg';
 import ArrowIcon from '../../custom/icons/ArrowIcon';
 
+const Products = [
+  {
+    title: "Big patterns are back in fashion",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
+    top: true,
+    id: "1",
+  },
+  {
+    title: "The latest men's trends this season",
+    description: "Don't miss this opportunity .",
+    top: false,
+    id: "2",
+  }, {
+    title: "Show your fashion with summer shoes",
+    description: "Don't miss this opportunity .",
+    top: false,
+    id: "3",
+  }
+]
 const Trending = memo(() => {
   return (
     <div className="mx-auto grid grid-flow-col grid-rows-2 gap-5 ">
       {/* first */}
-      <Link to="/product/3" className="col-span-1 row-span-2 hover:brightness-95">
+      <Link to="/product/632056db75cb9a5e1ada159f" className="col-span-1 row-span-2 hover:brightness-95">
         <Details
           title="Big patterns are back in fashion"
           description="Lorem ipsum dolor sit amet consectetur adipisicing elit. "
@@ -19,7 +38,7 @@ const Trending = memo(() => {
         <img src={img1} alt="" />
       </Link>
       {/* second */}
-      <Link to="/product/3" className="row-start-3 mx-5 hover:brightness-95 md:mx-0 lg:row-start-1">
+      <Link to="/product/632056db75cb9a5e1ada159f" className="row-start-3 mx-5 hover:brightness-95 md:mx-0 lg:row-start-1">
         <Details
           title="The latest men's trends this season"
           description="Don't miss this opportunity ."
@@ -29,7 +48,7 @@ const Trending = memo(() => {
         <img src={img2} alt="" />
       </Link>
       {/*  third */}
-      <Link to="/product/3" className="row-start-3 hidden hover:brightness-95   md:block lg:row-start-2">
+      <Link to="/product/632056db75cb9a5e1ada159f" className="row-start-3 hidden hover:brightness-95   md:block lg:row-start-2">
         <Details
           title="Show your fashion with summer shoes"
           description="Don't miss this opportunity ."
@@ -40,7 +59,7 @@ const Trending = memo(() => {
       </Link>
     </div>
   );
-}); 
+});
 export default Trending;
 
 function Details({ title, description, top, id }) {

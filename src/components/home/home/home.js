@@ -1,5 +1,5 @@
-import React, { memo, Suspense, lazy } from 'react';
-import Loader from '../../shared/loader/loader'; 
+import React, { Suspense, lazy } from 'react';
+import Loader from '../../shared/loader/loader';
 const Navigation = lazy(() => import('../../shared/navigation/navigation'));
 const Carousel = lazy(() => import('../../custom/carousel/carousel'));
 const FlashSale = lazy(() => import('../flashSale/flashSale'));
@@ -16,20 +16,22 @@ const Footer = lazy(() => import("../../shared/footer/footer"));
 // const  a = lazy(() => import(""));
 const Home = () => {
   return (
-    <Suspense fallback={<Loader/>}>
-      <Navigation />
-      <Carousel />
-      <Category />
-      <div className="mx-auto bg-white sm:w-11/12  lg:w-10/12">
-        <SmallDetails />
-        <Trending />
-        <FlashSale />
-        <LatestDeal />
-        <CategoryProduct />
-      </div>
-      <Footer />
-    </Suspense>
+    <>
+      <Suspense fallback={<Loader />}>
+        <Navigation />
+        <Carousel />
+        <Category />
+        <div className="mx-auto bg-white sm:w-11/12  lg:w-10/12">
+          <SmallDetails />
+          <Trending />
+          <FlashSale />
+          <LatestDeal />
+          <CategoryProduct />
+        </div>
+        <Footer />
+      </Suspense>
+    </>
   );
-} ;
+};
 
 export default Home;

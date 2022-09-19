@@ -6,7 +6,7 @@ const axiosConfig = {
 const instance = axios.create(axiosConfig);
 
 class Request {
-  async get(url) {
+  async get(url) { 
     return instance.get(url).then((res) => res.data);
   }
   async post(url, body) {

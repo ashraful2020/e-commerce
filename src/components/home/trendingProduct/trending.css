@@ -1,0 +1,24 @@
+.gallery {
+  column-count: 2;
+  padding: 12px;
+  column-fill: balance;
+}
+.pics {
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+.pics:nth-child(1) {
+  background-color: rgb(209, 209, 209);
+  margin-bottom: 30px;
+  min-height: 100vh;
+}
+@media (max-width: 1060px) {
+  .pics:nth-child(3) {
+    display: hidden;
+  }
+}
+@media (max-width: 700px) {
+  .gallery {
+    column-count: 1;
+  }
+}

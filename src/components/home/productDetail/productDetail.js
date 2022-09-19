@@ -1,34 +1,47 @@
-import React, {memo} from 'react';
+import React, { memo, useEffect, useState } from 'react';
+import { useLocation, useParams } from 'react-router-dom';
+import http from '../../../services/http.service';
 import Button from '../../custom/components/Button';
 import ArrowIcon from '../../custom/icons/ArrowIcon';
 import MinusIcon from '../../custom/icons/minusIcon';
 import PlusIcon from '../../custom/icons/plusIcon';
 import ProductImage from './productImage';
-const ProductDetail = memo(() => {
-  const price = 620;
-  const discount = 10;
-  const name = 'Ripstop Cargo Trousers With Pockets';
+const ProductDetail = memo((props) => {
+  const location = useLocation();
+  const [product, setProduct] = useState({});
+  useEffect(() => {
+    http.get(location.pathname).then((res) => setProduct(res));
+  }, [location.pathname]); 
+
+  const { name,price,stock,img,detail,detail2,detail3,} = product;
+  console.log("🚀 ~ file: productDetail.js ~ line 12 ~ ProductDetail ~ product", product)
+  const images = [
+    img,
+    detail,
+    detail2,
+    detail3,
+  ]
   const productInfo = {
     model: "DLH LBA 482q",
     brand: "ADDIDAS",
-    material:"fixed"
+    material: "fixed"
   }
   return (
     <div className="mx-auto mt-32 w-10/12 bg-rose-50">
       {/*  Product info and order info  */}
       <div className="grid-flow-col grid-cols-3 md:grid">
         <div className="col-span-1">
-          <ProductImage />
+          <ProductImage images={images} />
         </div>
         <div className="col-span-2 text-left">
           <h1 className="text-4xl">{name}</h1>
           <p className="text-lg">⭐⭐⭐⭐⭐ 205 rating </p>
           <p>Brand : Ashraful Group</p>
-          <h1>৳ {price - (discount / 100) * price}</h1>
+          <h1>৳ {price - (stock / 100) * price}</h1>
           <div className="flex text-sm">
             <h1 className="text-gray-400 line-through">৳ {price}</h1>
             <ArrowIcon />
-            <h1> {discount} %</h1>
+            <h1> {stock} %</h1>
           </div>
 
           <div className="flex items-center">
@@ -63,9 +76,9 @@ const ProductDetail = memo(() => {
         <div>
           <h1 className='text-left text-2xl font-medium'>Specification of {name}</h1>
           <div className='md:flex items-center justify-around text-left py-6'>
-            <p> <b>Brand</b> : {productInfo.brand? productInfo.brand : "no brand"} </p>
-            <p> <b>Model</b> : {productInfo.model? productInfo.model : "no model"} </p>
-            <p> <b>Material</b> : {productInfo.material? productInfo.material : "no material"} </p>
+            <p> <b>Brand</b> : {productInfo.brand ? productInfo.brand : "no brand"} </p>
+            <p> <b>Model</b> : {productInfo.model ? productInfo.model : "no model"} </p>
+            <p> <b>Material</b> : {productInfo.material ? productInfo.material : "no material"} </p>
           </div>
         </div>
       </div>

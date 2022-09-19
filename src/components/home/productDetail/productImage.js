@@ -6,14 +6,14 @@ import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
 import {FreeMode, Navigation, Thumbs,Pagination} from 'swiper';
 
-export default function ProductImage() {
+export default function ProductImage({images}) {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
-  const images = [
-    'https://swiperjs.com/demos/images/nature-1.jpg',
-    'https://swiperjs.com/demos/images/nature-2.jpg',
-    'https://swiperjs.com/demos/images/nature-3.jpg',
-    'https://swiperjs.com/demos/images/nature-4.jpg',
-  ];
+  // const images = [
+  //   'https://swiperjs.com/demos/images/nature-1.jpg',
+  //   'https://swiperjs.com/demos/images/nature-2.jpg',
+  //   'https://swiperjs.com/demos/images/nature-3.jpg',
+  //   'https://swiperjs.com/demos/images/nature-4.jpg',
+  // ];
 
   return (
     <div>
