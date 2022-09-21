@@ -8,7 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import http from "../../../services/http.service";
 import "./category.css";
 
-const CategoryProduct = memo(() => {
+const ProductCategory = memo(() => {
   const [productData, setProductData] = useState([]);
   useEffect(() => {
     http.get("/category").then((res) => setProductData(res));
@@ -61,7 +61,7 @@ const CategoryProduct = memo(() => {
           >
             {productData.map((data) => (
               <SwiperSlide key={data._id}>
-                <Link to={`/category?name=${data.name}`}>
+                <Link to={`/search-by-category?name=${data.name}`}>
                   <div>
                     <img src={data.img} alt="" srcSet="" />
                     <h1>Category Name  </h1>
@@ -76,4 +76,4 @@ const CategoryProduct = memo(() => {
   );
 });
 
-export default CategoryProduct;
+export default ProductCategory;

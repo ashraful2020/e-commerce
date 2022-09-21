@@ -6,15 +6,17 @@ import ArrowIcon from '../../custom/icons/ArrowIcon';
 import MinusIcon from '../../custom/icons/minusIcon';
 import PlusIcon from '../../custom/icons/plusIcon';
 import ProductImage from './productImage';
+import { useSelector, useDispatch } from 'react-redux'
+import { add_to_cart } from '../../../features/productSlice';
 const ProductDetail = memo((props) => {
   const location = useLocation();
   const [product, setProduct] = useState({});
   useEffect(() => {
     http.get(location.pathname).then((res) => setProduct(res));
   }, [location.pathname]); 
-
-  const { name,price,stock,img,detail,detail2,detail3,} = product;
-  console.log("🚀 ~ file: productDetail.js ~ line 12 ~ ProductDetail ~ product", product)
+  const { name,price,stock,img,detail,detail2,detail3,_id} = product; 
+  console.log(location.pathname)
+  console.log(_id,"id")
   const images = [
     img,
     detail,
@@ -26,8 +28,11 @@ const ProductDetail = memo((props) => {
     brand: "ADDIDAS",
     material: "fixed"
   }
+  const newData = useSelector((state) => state)
+  console.log(newData)
+  const dispatch = useDispatch();
   return (
-    <div className="mx-auto mt-32 w-10/12 bg-rose-50">
+    <div className="mx-auto pt-12 w-10/12 ">
       {/*  Product info and order info  */}
       <div className="grid-flow-col grid-cols-3 md:grid">
         <div className="col-span-1">
@@ -49,8 +54,10 @@ const ProductDetail = memo((props) => {
           </div>
 
           <div className="flex justify-evenly">
-            <Button color="bg-sky-500" title="Buy Now " />
-            <Button icon="cart" color="bg-orange-500" title="Add To cart" />
+            {/* A button that will redirect to the checkout page.  */}
+            <Button color="bg-sky-500" title="
+            Buy Now " />
+            <Button icon="cart" color="bg-orange-500" title="Add To cart" onClick={(e)=>dispatch(add_to_cart(_id))} />
           </div>
         </div>
       </div>

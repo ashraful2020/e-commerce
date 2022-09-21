@@ -2,14 +2,16 @@ import React, { Suspense, lazy } from 'react';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import AuthProvider from './app/AuthProvider';   
-const Home = lazy(() => import('./components/home/home'));
+import ProductCategory from './components/home/productCategory';
+import CategoryProducts from './components/home/categoryProducts';
+import Loader from './components/shared/loader/loader';
+const Home = lazy(() => import('./components/home/home/home'));
 const Login = lazy(() => import("./components/shared/login/login"));
 const Register = lazy(() => import("./components/shared/register/register"));
 const Cart = lazy(() => import("./components/cart/cart"));
 const Profile = lazy(() => import("./components/shared/profile/profile"));
 const PrivateRoute = lazy(() => import("./components/shared/privateRoute/privateRoute"));
 const SearchByCategory = lazy(() => import("./components/home/searchByCategory/searchByCategory"));
-const Loader = lazy(() => import("./components/shared/loader/loader"));
 // const name = lazy(() => import(""));
 // const name = lazy(() => import(""));
 const ProductDetail = React.lazy(() =>
@@ -35,14 +37,13 @@ function App() {
           <Route path="/flash-product/:id" element={<ProductDetail />} />
           <Route path="/latest-deal/:id" element={<ProductDetail />} />
           <Route path="/contact" element={'contact Page'} />
-          <Route path="/search-by-category" element={'search-by-category'} />
+          <Route path="/search-by-category" element={< CategoryProducts />} /> 
           <Route path="/cart" element={<PrivateRoute>
             <Cart />
           </PrivateRoute>} />
           <Route path="/account" element={<PrivateRoute>
             <Profile />
           </PrivateRoute>} />
-          <Route path="/category" element={<SearchByCategory />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="*" element={"Error Page"} />

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import logo from '../../../assets/logo.png';
 import HomeIcon from '../../custom/icons/homeIcon';
 import CategoryIcon from '../../custom/icons/categoryIcon';
@@ -17,9 +17,18 @@ const Navigation = () => {
   const [active, setActive] = useState(0);
   const { user } = useAuth();
   const [searchValue, setSearchValue] = useState('');
+  const [products, setProducts] = useState([])
+  useEffect(() => {
+    fetch('./products.json')
+      .then(res => res.json())
+      .then(data => setProducts(data))
+  }, []);
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    console.log(searchValue);
+    const newProduct=products.filter(product=>product.name.toLowerCase().match(searchValue.toLowerCase()))
+    console.log(newProduct);
+    console.log(searchValue); 
+  
   }
   return (
     <div>

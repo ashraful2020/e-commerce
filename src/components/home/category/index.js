@@ -27,11 +27,10 @@ const Category = memo(() => {
   );
 });
 
-export default Category;
-
+export default Category; 
 function Product({ img, title, none,category }) {
   return (
-    <Link to={`/category?name=${category}`} state={category}
+    <Link to={`/search-by-category?name=${category}`} state={category}
       className={`z-10 md:m-5 mx-auto mb-5 bg-white text-left shadow-2xl  shadow-indigo-100 lg:px-4 ${none && 'hidden lg:block'
         } `}>
       <h1 className="font-semibold lg:text-2xl">{title}</h1>
