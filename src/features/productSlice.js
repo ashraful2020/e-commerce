@@ -1,28 +1,28 @@
 import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
-    product: [], 
-    message:''
+    product: {},
+    message: ''
 };
 
-export const productSlice = createSlice({
+export const cartSlice = createSlice({
     name: "product",
     initialState,
     reducers: {
         add_to_cart: (state, action) => {
-            const newData = state.product.find(item => item === action.payload)  
-            console.log(newData,"hello");
-            if (!newData) {
-                state.product.push(action.payload)
-                state.message=""
+            const product = { ...state.product }
+            const newProduct = Object.keys(product);
+            const exists = newProduct.filter(key => key === action.payload)
+            if (exists.length === 0) {
+                state.product[action.payload] = 1;
             }
-            else {  
-                state.message="Already added to cart"
+            else {
+                state.product[action.payload] += 1;
             }
         }
     },
 })
 
 // Action creators are generated for each case reducer function
-export const { add_to_cart } = productSlice.actions
+export const { add_to_cart } = cartSlice.actions
 
-export default productSlice.reducer
+export default cartSlice.reducer

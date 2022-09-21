@@ -1,6 +1,6 @@
 import { combineReducers, configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import counterReducer from "../features/counter/counterSlice";
-import productSlice from "../features/productSlice";
+import cartSlice from "../features/productSlice";
 import {
   FLUSH,
   REHYDRATE,
@@ -16,7 +16,7 @@ import storage from 'redux-persist/lib/storage' // defaults to localStorage for 
  
 const rootReducer = combineReducers({
   counter: counterReducer,
-  products: productSlice,
+  cart: cartSlice,
 })
 const persistConfig = {
   key: 'root',

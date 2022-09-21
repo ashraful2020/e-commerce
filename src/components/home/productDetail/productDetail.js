@@ -14,9 +14,8 @@ const ProductDetail = memo((props) => {
   useEffect(() => {
     http.get(location.pathname).then((res) => setProduct(res));
   }, [location.pathname]); 
+  
   const { name,price,stock,img,detail,detail2,detail3,_id} = product; 
-  console.log(location.pathname)
-  console.log(_id,"id")
   const images = [
     img,
     detail,
@@ -28,8 +27,7 @@ const ProductDetail = memo((props) => {
     brand: "ADDIDAS",
     material: "fixed"
   }
-  const newData = useSelector((state) => state)
-  console.log(newData)
+
   const dispatch = useDispatch();
   return (
     <div className="mx-auto pt-12 w-10/12 ">
