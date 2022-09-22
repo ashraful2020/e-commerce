@@ -9,12 +9,13 @@ import ProductImage from '../home/productDetail/productImage';
 import img from '../../assets/category/fitness.png';
 import Button from '../custom/components/Button';
 import CartInfo from './cartInfo';
+import { cart_length } from '../../features/productSlice';
 
 const Cart = () => {
   document.title = "Cart | Amar Store"
   const productId = useSelector((state) => state.cart.product);
   const [cartProduct, setCartProduct] = useState([]);
-  const [cartItem, setCartItem] = useState({});
+  const dispatch = useDispatch();
   const uri = "/flash-product" || "/products" || "/latest-deal"
   useEffect(() => {
     http.get(uri)
@@ -31,11 +32,11 @@ const Cart = () => {
             }
           }
           setCartProduct(storeProduct);
-          // dispatch(storeProduct)
+          dispatch(cart_length(storeProduct.length))
         }
       });
-  }, [uri, productId]);
- 
+  }, [uri, productId,dispatch]); 
+  console.log("render")
   return (
     <div className='flex w-full'>
       <div className="w-8/12">
@@ -59,7 +60,7 @@ const Cart = () => {
           <tbody>
 
             {cartProduct.map((product) =>
-              <>
+              <React.Fragment key={product._id}>
                 <tr className="bg-white border-b-[.01px]">
                   <th scope="row" className="py-4 px-6 ">
                     <div className='flex items-center gap-4'>
@@ -79,7 +80,7 @@ const Cart = () => {
                     ${product?.quantity * product.price}
                   </td>
                 </tr>
-              </>
+              </React.Fragment>
             )}
           </tbody>
         </table>

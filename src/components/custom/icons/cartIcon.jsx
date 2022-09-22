@@ -1,8 +1,12 @@
 import * as React from 'react';
+import { useSelector } from 'react-redux';
 
 function CartIcon(props) {
+const amount=useSelector(state=>state?.cart?.totalItem)
+  console.log("🚀 ~ file: cartIcon.jsx ~ line 6 ~ CartIcon ~ amount", amount)
   return (
-    <button>
+    <button className='bg-gray-50 relative'>
+      <span className='absolute top-[-10px] bg-gray-900 px-2 rounded-full text-white opacity-60'>{amount}</span>
       <svg
         stroke="currentColor"
         fill="currentColor"

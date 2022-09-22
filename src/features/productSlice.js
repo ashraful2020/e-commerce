@@ -1,11 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     product: {},
-    message: ''
+    message: '',
+    totalItem:0,
 };
 
 export const cartSlice = createSlice({
-    name: "product",
+    name: "cart",
     initialState,
     reducers: {
         add_to_cart: (state, action) => {
@@ -19,11 +20,14 @@ export const cartSlice = createSlice({
                 state.product[action.payload] += 1;
             }
         },
-        
+        cart_length: (state, action) => {
+            state.totalItem = action.payload;
+        }
+
     },
 })
 
 // Action creators are generated for each case reducer function
-export const { add_to_cart } = cartSlice.actions
+export const { add_to_cart,cart_length } = cartSlice.actions
 
 export default cartSlice.reducer
