@@ -2,7 +2,7 @@ import * as React from 'react';
 
 function PlusIcon(props) { 
   return (
-    <div className="m-5 bg-gray-200 px-5 py-4">
+    <div className={`m-5 bg-gray-200 px-5 py-4 ${props?.size? 'px-2 py-1':'px-5 py-4'}`}>
       <svg
         stroke="currentColor"
         fill="currentColor"

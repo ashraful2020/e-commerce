@@ -11,14 +11,15 @@ export const cartSlice = createSlice({
         add_to_cart: (state, action) => {
             const product = { ...state.product }
             const newProduct = Object.keys(product);
-            const exists = newProduct.filter(key => key === action.payload)
-            if (exists.length === 0) {
+            const exists = newProduct.find(key => key === action.payload)
+            if (exists?.length === 0) {
                 state.product[action.payload] = 1;
             }
             else {
                 state.product[action.payload] += 1;
             }
-        }
+        },
+        
     },
 })
 
