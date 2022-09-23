@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { cart_length } from "../features/cartSlice";
+ 
 import http from "../services/http.service";
 
 const useCart = () => {
@@ -22,8 +22,7 @@ const useCart = () => {
                             storedCart.push(addedProducts);
                         }
                     }
-                    setCart(storedCart);
-                    dispatch(cart_length(storedCart.length));
+                    setCart(storedCart); 
                 }
             });
     }, [productId, dispatch]);

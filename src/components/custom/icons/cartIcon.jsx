@@ -3,10 +3,10 @@ import {useSelector} from 'react-redux';
 
 function CartIcon(props) {
   const amount = useSelector(state => state?.cart?.totalItem);
-  
+  console.log(amount)
   return (
     <span className="relative">
-      {props.cart==='cart' && <span className="absolute top-[-12px] right-[-18px] rounded-full bg-gray-900 px-2 text-white opacity-60">
+      {props.cart==='cart' && <span className="absolute top-[-12px] right-[-18px] rounded-full bg-blue-900 px-2 text-white opacity-60">
         {amount}
       </span>}
       <svg
