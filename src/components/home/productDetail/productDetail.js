@@ -1,13 +1,13 @@
 import React, { memo, useEffect, useState } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import http from '../../../services/http.service';
 import Button from '../../custom/components/Button';
 import ArrowIcon from '../../custom/icons/ArrowIcon';
 import MinusIcon from '../../custom/icons/minusIcon';
 import PlusIcon from '../../custom/icons/plusIcon';
 import ProductImage from './productImage';
-import { useSelector, useDispatch } from 'react-redux'
-import { add_to_cart } from '../../../features/productSlice';
+import {  useDispatch } from 'react-redux'
+import { add_to_cart } from '../../../features/cartSlice';
 const ProductDetail = memo((props) => {
   const location = useLocation();
   const [product, setProduct] = useState({});

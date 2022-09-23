@@ -1,8 +1,12 @@
-import * as React from 'react';
+import * as React from 'react'; 
 
-function PlusIcon(props) { 
+function PlusIcon(props,{onClick}) {
   return (
-    <div className={`m-5 bg-gray-200 px-5 py-4 ${props?.size? 'px-2 py-1':'px-5 py-4'}`}>
+    <div
+      className={`m-5 bg-gray-200 px-5 py-4 ${
+        props?.size ? 'px-2 py-1' : 'px-5 py-4'
+      }`}
+      onClick={onClick}>
       <svg
         stroke="currentColor"
         fill="currentColor"

@@ -1,10 +1,11 @@
 import React, { Suspense, lazy } from 'react';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
-import AuthProvider from './app/AuthProvider';   
+import AuthProvider from './app/AuthProvider';
 import ProductCategory from './components/home/productCategory';
 import CategoryProducts from './components/home/categoryProducts';
 import Loader from './components/shared/loader/loader';
+import Checkout from './components/cart/checkout/checkout';
 const Home = lazy(() => import('./components/home/home/home'));
 const Login = lazy(() => import("./components/shared/login/login"));
 const Register = lazy(() => import("./components/shared/register/register"));
@@ -17,7 +18,7 @@ const SearchByCategory = lazy(() => import("./components/home/searchByCategory/s
 const ProductDetail = React.lazy(() =>
   import('./components/home/productDetail/productDetail'),
 );
-function App() { 
+function App() {
   // http.get("/product").then((res) => console.log(res)); 
   // http.get("/product/632056db75cb9a5e1ada159e").then((res) => console.log(res)); 
   // http.get("/category").then((res) => console.log(res)); 
@@ -37,13 +38,22 @@ function App() {
           <Route path="/flash-product/:id" element={<ProductDetail />} />
           <Route path="/latest-deal/:id" element={<ProductDetail />} />
           <Route path="/contact" element={'contact Page'} />
-          <Route path="/search-by-category" element={< CategoryProducts />} /> 
-          <Route path="/cart" element={<PrivateRoute>
-            <Cart />
-          </PrivateRoute>} />
-          <Route path="/account" element={<PrivateRoute>
-            <Profile />
-          </PrivateRoute>} />
+          <Route path="/search-by-category" element={< CategoryProducts />} />
+          <Route path="/cart" element={
+            <PrivateRoute>
+              <Cart />
+            </PrivateRoute>
+          } />
+          <Route path="/account" element={
+            <PrivateRoute>
+              <Profile />
+            </PrivateRoute>
+          } />
+          <Route path="/checkout" element={
+            <PrivateRoute>
+              <Checkout />
+            </PrivateRoute>
+          } />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="*" element={"Error Page"} />

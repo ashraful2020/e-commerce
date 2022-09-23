@@ -1,21 +1,10 @@
-import { combineReducers, configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
-import counterReducer from "../features/counter/counterSlice";
-import cartSlice from "../features/productSlice";
-import {
-  FLUSH,
-  REHYDRATE,
-  PAUSE,
-  PERSIST,
-  PURGE,
-  REGISTER,
-} from 'redux-persist';
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import cartSlice from "../features/cartSlice";
 import persistStore from 'redux-persist/lib/persistStore';
 import persistReducer from 'redux-persist/lib/persistReducer';
-// redux persist 
-import storage from 'redux-persist/lib/storage' // defaults to localStorage for web
- 
+import storage from 'redux-persist/lib/storage'
+
 const rootReducer = combineReducers({
-  counter: counterReducer,
   cart: cartSlice,
 })
 const persistConfig = {

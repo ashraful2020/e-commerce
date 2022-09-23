@@ -1,8 +1,10 @@
 import * as React from 'react';
 
-function MinusIcon(props) {
+function MinusIcon(props, {onClick}) {
   return (
-    <div className={`m-5 bg-gray-200 ${props?.size? 'px-2 py-1':'px-5 py-4'} `}>
+    <div
+      className={`m-5 bg-gray-200 ${props?.size ? 'px-2 py-1' : 'px-5 py-4'} `}
+      onClick={onClick}>
       <svg
         stroke="currentColor"
         fill="currentColor"

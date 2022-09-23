@@ -78,7 +78,7 @@ const Navigation = () => {
             </p>
           </Link>
           <Link to="/cart">
-            <CartIcon />
+            <CartIcon cart={'cart'} />
           </Link>
         </div>
       </div>
