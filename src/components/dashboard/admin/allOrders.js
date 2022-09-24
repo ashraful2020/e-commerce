@@ -1,11 +1,11 @@
 import React, { memo } from 'react';
 
-const ReturnRequest = memo(() => {
+const AllOrders = memo(() => {
     return (
         <div>
-            ReturnRequest
+            all orders
         </div>
     );
 });
 
-export default ReturnRequest;
+export default AllOrders;

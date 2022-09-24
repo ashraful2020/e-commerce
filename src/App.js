@@ -3,23 +3,17 @@ import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import Loader from './components/shared/loader/loader';
 import AuthProvider from './app/AuthProvider';
-const MyOrder = lazy(() => import("./components/dashboard/myOrder/myOrder"));
-const Voucher = lazy(() => import("./components/dashboard/voucher/voucher"));
-const CategoryProducts = lazy(() => import("./components/home/categoryProducts"));
-const Checkout = lazy(() => import("./components/cart/checkout/checkout"));
-const DashboardHome = lazy(() => import("./components/dashboard/dashboardHome/dashboardHome"));
-const Address = lazy(() => import("./components/dashboard/address/address"));
-const PaymentOption = lazy(() => import("./components/dashboard/paymentOption/paymentOption"));
-const Return = lazy(() => import("./components/dashboard/return/return"));
-const Cancel = lazy(() => import("./components/dashboard/cancel/cancel"));
+import { routes } from './routes/routes';
+import dummyUser from './dummyUser';
+
 const Home = lazy(() => import('./components/home/home/home'));
 const Login = lazy(() => import("./components/shared/login/login"));
 const Register = lazy(() => import("./components/shared/register/register"));
 const Cart = lazy(() => import("./components/cart/cart"));
-const Profile = lazy(() => import("./components/dashboard/profile/profile"));
 const PrivateRoute = lazy(() => import("./components/shared/privateRoute/privateRoute"));
-// const SearchByCategory = lazy(() => import("./components/home/searchByCategory/searchByCategory"));
-
+const CategoryProducts = lazy(() => import("./components/home/categoryProducts"));
+const Checkout = lazy(() => import("./components/cart/checkout/checkout"));
+const DashboardHome = lazy(() => import("./components/dashboard/dashboardHome/dashboardHome"));
 
 // const name = lazy(() => import(""));
 // const name = lazy(() => import(""));
@@ -27,17 +21,12 @@ const PrivateRoute = lazy(() => import("./components/shared/privateRoute/private
 const ProductDetail = React.lazy(() =>
   import('./components/home/productDetail/productDetail'),
 );
+
+const filteredRoutes = routes.filter(route => route.roles.includes(dummyUser.role));
+
 function App() {
   console.log('render')
-  // http.get("/product").then((res) => console.log(res)); 
-  // http.get("/product/632056db75cb9a5e1ada159e").then((res) => console.log(res)); 
-  // http.get("/category").then((res) => console.log(res)); 
-  // http.get("/flash-product").then((res) => console.log(res)); 
-  // http.get("/latest-deal").then((res) => console.log(res)); 
-  // http.get("/search-by-category").then((res) => console.log(res)); 
-  // http.get("/").then((res) => console.log(res)); 
-
-  // ? http://localhost:3000/category?q=categoryName
+  // http.get("/").then((res) => console.log(res));
   return (
     <AuthProvider className="App">
       <Suspense fallback={<Loader />}>
@@ -49,6 +38,7 @@ function App() {
           <Route path="/latest-deal/:id" element={<ProductDetail />} />
           <Route path="/contact" element={'contact Page'} />
           <Route path="/search-by-category" element={< CategoryProducts />} />
+          
           <Route path="/cart" element={
             <PrivateRoute>
               <Cart />
@@ -70,13 +60,13 @@ function App() {
               </PrivateRoute>
             }
           >
-            <Route path="my-profile" element={<Profile />} />
-            <Route path="address" element={<Address />} />
-            <Route path="payment-option" element={<PaymentOption />} />
-            <Route path="return" element={<Return />} />
-            <Route path="cancel" element={<Cancel />} />
-            <Route path="my-orders" element={<MyOrder />} />
-            <Route path="voucher" element={<Voucher />} />
+            {
+              filteredRoutes.map((route, _i) => {
+                return (
+                  route.element && (<Route path={route.path} element={route.element} key={_i} />)
+                )
+              })
+            }
           </Route>
 
           <Route path="/login" element={<Login />} />

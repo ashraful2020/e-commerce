@@ -53,8 +53,7 @@ const ProductDetail = memo((props) => {
 
           <div className="flex justify-evenly">
             {/* A button that will redirect to the checkout page.  */}
-            <Button color="bg-sky-500" title="
-            Buy Now " />
+            <Button color="bg-sky-500" icon="ab" title="Buy Now " />
             <Button icon="cart" color="bg-orange-500" title="Add To cart" onClick={(e)=>dispatch(add_to_cart(_id))} />
           </div>
         </div>

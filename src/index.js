@@ -8,9 +8,6 @@ import { BrowserRouter } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react'
 import Loader from './components/shared/loader/loader';
 
-const name = [
-  { 'name': '1', 'person': '2' }
-]
 const container = document.getElementById('root');
 const root = createRoot(container);
 root.render(

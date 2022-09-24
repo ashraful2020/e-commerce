@@ -1,17 +1,12 @@
 import React, { memo } from 'react';
 import { Outlet } from 'react-router-dom';
+import dummyUser from '../../../dummyUser';
 import withLayout from '../../../hocs/withLayout';
 const AdminRoute = React.lazy(() => import("./adminRoute"));
 const DashboardRoute = React.lazy(() => import("./dashboardRoute"));
 const MerchantRoute = React.lazy(() => import("./merchantRoute"));
 
-/* A dummy data for the user. */
-const user = {
-    name: 'user',
-    email: 'user@gmail.com',
-    role: "admin",
-}
-
+ 
 const DashboardHome = () => { 
     const RouteFor = (data) => {
         switch (data) {
@@ -24,11 +19,11 @@ const DashboardHome = () => {
 
     return (
         <div className='bg-gray-100 '>
-            <div className='min-h-[450px] flex mx-32'>
-                <div className='w-2/12'>
-                    {RouteFor(user.role)}
+            <div className='min-h-[450px] md:flex md:mx-32'>
+                <div className='md:w-2/12'>
+                    {RouteFor(dummyUser.role)}
                 </div>
-                <div className=' w-10/12'>
+                <div className=' md:w-10/12'>
                     <Outlet />
                      </div>
             </div>

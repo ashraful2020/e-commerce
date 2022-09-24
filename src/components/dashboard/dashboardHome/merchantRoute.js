@@ -8,17 +8,11 @@ const MerchantRoute = memo(() => {
     return (<>
         <h1 className='text-xl font-bold'>Manage Shop</h1>
         <Link className='d-link' to="/account/my-profile">My Profile </Link>
-        <Link className='d-link' to="/account/address">Address Book</Link>
-        <Link className='d-link' to="/account/payment-option">My Payment Option</Link>
-        <Link className='d-link' to="/account/voucher">Vouchers</Link>
-        <Link className='block hover:text-gray-600 ' to="/account/my-orders">
-            <h1 className='text-xl font-bold'>My Orders</h1>
-        </Link>
-        <Link className='d-link' to="/account/return">My Return</Link>
-        <Link className='d-link' to="/account/cancel">My Cancel </Link>
-
-        <Button color="px-4 py-2 text-black bg-blue-200 items-start" title="Log out" onClick={handleLogOut}></Button>
-    </>
+        <Link className='d-link' to="/account/address">Pick up Address</Link>
+        <Link className='d-link' to="/account/add-product">Add Product</Link>
+        <Link className='d-link' to="/account/update-product">Update Product</Link>
+        <Link className='d-link' to="/account/payment-option">Payment Option</Link>
+        <Button color="px-8 py-2 text-black bg-orange-400 mt-8" title="Log out" onClick={handleLogOut}></Button> </>
     );
 });
 
