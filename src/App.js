@@ -1,18 +1,40 @@
 import React, { Suspense, lazy } from 'react';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
-import AuthProvider from './app/AuthProvider';
-import ProductCategory from './components/home/productCategory';
-import CategoryProducts from './components/home/categoryProducts';
 import Loader from './components/shared/loader/loader';
-import Checkout from './components/cart/checkout/checkout';
+import AuthProvider from './app/AuthProvider';
+import MyOrder from './components/dashboard/myOrder/myOrder';
+
+// import CategoryProducts from './components/home/categoryProducts';
+// import Checkout from './components/cart/checkout/checkout';
+// import DashboardHome from './components/dashboard/dashboardHome/dashboardHome';
+// import Address from './components/dashboard/address/address';
+// import PaymentOption from './components/dashboard/paymentOption/paymentOption';
+// import Return from './components/dashboard/return/return';
+// import Cancel from './components/dashboard/cancel/cancel';
+
+const CategoryProducts = lazy(() => import("./components/home/categoryProducts"));
+const Checkout = lazy(() => import("./components/cart/checkout/checkout"));
+const DashboardHome = lazy(() => import("./components/dashboard/dashboardHome/dashboardHome"));
+const Address = lazy(() => import("./components/dashboard/address/address"));
+const PaymentOption = lazy(() => import("./components/dashboard/paymentOption/paymentOption"));
+const Return = lazy(() => import("./components/dashboard/return/return"));
+const Cancel = lazy(() => import("./components/dashboard/cancel/cancel"));
 const Home = lazy(() => import('./components/home/home/home'));
 const Login = lazy(() => import("./components/shared/login/login"));
 const Register = lazy(() => import("./components/shared/register/register"));
 const Cart = lazy(() => import("./components/cart/cart"));
-const Profile = lazy(() => import("./components/shared/profile/profile"));
+const Profile = lazy(() => import("./components/dashboard/profile/profile"));
 const PrivateRoute = lazy(() => import("./components/shared/privateRoute/privateRoute"));
 const SearchByCategory = lazy(() => import("./components/home/searchByCategory/searchByCategory"));
+
+
+
+
+
+
+
+
 // const name = lazy(() => import(""));
 // const name = lazy(() => import(""));
 const ProductDetail = React.lazy(() =>
@@ -44,16 +66,30 @@ function App() {
               <Cart />
             </PrivateRoute>
           } />
-          <Route path="/account" element={
-            <PrivateRoute>
-              <Profile />
-            </PrivateRoute>
-          } />
           <Route path="/checkout" element={
             <PrivateRoute>
               <Checkout />
             </PrivateRoute>
           } />
+
+          {/*  This is dashboard section.....  */}
+
+          <Route
+            path="/account"
+            element={
+              <PrivateRoute>
+                <DashboardHome />
+              </PrivateRoute>
+            }
+          >
+            <Route path="my-profile" element={<Profile />} />
+            <Route path="address" element={<Address />} />
+            <Route path="payment-option" element={<PaymentOption />} />
+            <Route path="return" element={<Return />} />
+            <Route path="cancel" element={<Cancel />} />
+            <Route path="my-orders" element={<MyOrder />} />
+          </Route>
+
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="*" element={"Error Page"} />

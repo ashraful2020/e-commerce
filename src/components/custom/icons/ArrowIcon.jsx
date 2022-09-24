@@ -1,8 +1,10 @@
-import * as React from 'react';
 
-function ArrowIcon(props) {
+import React, { memo } from 'react';
+
+const ArrowIcon = memo((props) => {
   return (
-    <svg
+    <div>
+        <svg
       stroke="currentColor"
       fill="currentColor"
       strokeWidth={0}
@@ -22,7 +24,8 @@ function ArrowIcon(props) {
         clipRule="evenodd"
       />
     </svg>
+    </div>
   );
-}
+});
 
 export default ArrowIcon;

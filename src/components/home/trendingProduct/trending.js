@@ -1,29 +1,10 @@
 import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
-import img1 from '../../../assets/trending/banner-01.jpg';
+import img1 from '../../../assets/trending/banner-011.jpg';
 import img2 from '../../../assets/trending/banner-02.jpg';
 import img3 from '../../../assets/trending/banner-03.jpg';
 import ArrowIcon from '../../custom/icons/ArrowIcon';
 
-const Products = [
-  {
-    title: "Big patterns are back in fashion",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
-    top: true,
-    id: "1",
-  },
-  {
-    title: "The latest men's trends this season",
-    description: "Don't miss this opportunity .",
-    top: false,
-    id: "2",
-  }, {
-    title: "Show your fashion with summer shoes",
-    description: "Don't miss this opportunity .",
-    top: false,
-    id: "3",
-  }
-]
 const Trending = memo(() => {
   return (
     <div className="mx-auto grid grid-flow-col grid-rows-2 gap-5 ">

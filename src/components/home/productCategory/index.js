@@ -59,16 +59,18 @@ const ProductCategory = memo(() => {
               },
             }}
           >
-            {productData.map((data) => (
-              <SwiperSlide key={data._id}>
-                <Link to={`/search-by-category?name=${data.name}`}>
-                  <div>
-                    <img src={data.img} alt="" srcSet="" />
-                    <h1>Category Name  </h1>
-                  </div>
-                </Link>
-              </SwiperSlide>
-            ))}
+            {productData.map((data) => {
+              return (
+                <SwiperSlide key={data._id}>
+                  <Link to={`/search-by-category?name=${data.name}`}>
+                    <div>
+                      <img src={data.img} alt="" srcSet="" />
+                      <h1>Category Name  </h1>
+                    </div>
+                  </Link>
+                </SwiperSlide>
+              )
+            })}
           </Swiper>
         </div>
       </div>

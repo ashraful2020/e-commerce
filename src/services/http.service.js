@@ -1,6 +1,6 @@
 import axios from "axios";
 const axiosConfig = {
-  baseURL: "http://localhost:5000/api/v1",
+  baseURL: "https://amarstore.herokuapp.com/api/v1",
   timeout: 20000,
 };
 const instance = axios.create(axiosConfig);

@@ -48,16 +48,18 @@ const Footer = () => {
 
 export default Footer;
 
-function NewInfo({title, details, links}) {
+function NewInfo({ title, details, links }) {
   return (
     <div>
       <h1 className="text-3xl font-semibold">{title}</h1>
       <div className="py-5 font-sans text-gray-300">
-        {details.map((info, _i) => (
-          <p key={_i} className="py-2 text-sm hover:underline">
-            {info}{' '}
-          </p>
-        ))}
+        {details.map((info, _i) => {
+          return (
+            <p key={_i} className="py-2 text-sm hover:underline">
+              {info}{' '}
+            </p>
+          )
+        })}
       </div>
     </div>
   );

@@ -25,10 +25,10 @@ const Navigation = () => {
   }, []);
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    const newProduct=products.filter(product=>product.name.toLowerCase().match(searchValue.toLowerCase()))
+    const newProduct = products.filter(product => product.name.toLowerCase().match(searchValue.toLowerCase()))
     console.log(newProduct);
-    console.log(searchValue); 
-  
+    console.log(searchValue);
+
   }
   return (
     <div>
@@ -87,26 +87,28 @@ const Navigation = () => {
         <div className=" fixed bottom-0 left-0  right-0 z-50 block h-[3rem] rounded-t-lg  bg-gray-800 text-white md:hidden">
           <ul className="relative flex justify-around">
 
-            {Menus.map((menu, i) => (
-              <li key={i} className="w-16 p-1">
-                <Link to={menu.link}
-                  className="flex flex-col"
-                  onClick={() => setActive(i)}>
-                  <span
-                    className={` mx-auto cursor-pointer text-xl  duration-500 ${i === active && '-mt-6 p-2 border-[3px] border-transparent rounded-full bg-blue-500'
-                      }`}>
-                    <menu.icon />{' '}
-                  </span>
-                  <span
-                    className={` text-xs ${active === i
-                      ? 'translate-y-5 pt-1 -mt-6 opacity-100 duration-700'
-                      : 'translate-y-100 opacity-0'
-                      } `}>
-                    {menu.name}
-                  </span>
-                </Link>
-              </li>
-            ))}
+            {Menus.map((menu, i) => {
+              return (
+                <li key={i} className="w-16 p-1">
+                  <Link to={menu.link}
+                    className="flex flex-col"
+                    onClick={() => setActive(i)}>
+                    <span
+                      className={` mx-auto cursor-pointer text-xl  duration-500 ${i === active && '-mt-6 p-2 border-[3px] border-transparent rounded-full bg-blue-500'
+                        }`}>
+                      <menu.icon />{' '}
+                    </span>
+                    <span
+                      className={` text-xs ${active === i
+                        ? 'translate-y-5 pt-1 -mt-6 opacity-100 duration-700'
+                        : 'translate-y-100 opacity-0'
+                        } `}>
+                      {menu.name}
+                    </span>
+                  </Link>
+                </li>
+              )
+            })}
           </ul>
         </div>
       </div>

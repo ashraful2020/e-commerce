@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {useSelector} from 'react-redux';
 
-function CartIcon(props) {
+const  CartIcon =React.memo((props) =>{
   const amount = useSelector(state => state?.cart?.totalItem);
   console.log(amount)
   return (
@@ -21,6 +21,6 @@ function CartIcon(props) {
       </svg>
     </span>
   );
-}
+})
 
-export default CartIcon;
+export default CartIcon; 

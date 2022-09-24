@@ -11,9 +11,9 @@ const FlashSale = () => {
       .then((res) => {
         setProducts(res.data)
         setTime({ ending: res?.flashEnding, starting: res?.flashStarting })
-        
+
       });
-  }, []); 
+  }, []);
   return (
     <div className="m-2 mt-12 border-t p-2 shadow-xl">
       <div className="flex justify-between pb-2">
@@ -32,12 +32,12 @@ const FlashSale = () => {
       </div>
       <hr />
       <div className="mx-auto grid grid-cols-3 gap-4 py-4 md:grid-cols-5 lg:gap-6">
-        {products.map(product => (
-          <Link to={`/flash-product/${product._id}`}
+        {products.map(product => {
+          return <Link to={`/flash-product/${product._id}`}
             state="hello"
             key={product._id}
             className="mx-auto text-left hover:shadow-xl lg:p-2">
-            
+
             <img src={product.img} className="mx-auto md:h-32 md:w-32" alt="" />
             <div>
               <h1 className="hidden font-semibold md:block">
@@ -55,7 +55,7 @@ const FlashSale = () => {
               </div>
             </div>
           </Link>
-        ))}
+        })}
       </div>
     </div>
   );

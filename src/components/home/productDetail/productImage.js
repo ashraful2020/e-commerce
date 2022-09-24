@@ -1,12 +1,12 @@
-import React, { useState} from 'react';
-import {Swiper, SwiperSlide} from 'swiper/react';
+import React, { useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
-import {FreeMode, Navigation, Thumbs,Pagination} from 'swiper';
+import { FreeMode, Navigation, Thumbs, Pagination } from 'swiper';
 
-export default function ProductImage({images}) {
+export default function ProductImage({ images }) {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   // const images = [
   //   'https://swiperjs.com/demos/images/nature-1.jpg',
@@ -21,21 +21,23 @@ export default function ProductImage({images}) {
         style={{
           '--swiper-navigation-color': '#000',
           '--swiper-pagination-color': '#fff',
-          '--swiper-navigation-size':"2rem",
+          '--swiper-navigation-size': "2rem",
         }}
         loop={true}
-        
+
         spaceBetween={10}
         navigation={true}
-        thumbs={{swiper: thumbsSwiper}}
-        modules={[FreeMode, Navigation, Thumbs,Pagination]}
+        thumbs={{ swiper: thumbsSwiper }}
+        modules={[FreeMode, Navigation, Thumbs, Pagination]}
         className="mySwiper2">
         {/* //? Load image  */}
-        {images.map((img, _i) => (
-          <SwiperSlide key={_i}>
-            <img className="h-96 w-80 mx-auto" alt="" src={img} />
-          </SwiperSlide>
-        ))}
+        {images.map((img, _i) => {
+          return (
+            <SwiperSlide key={_i}>
+              <img className="h-96 w-80 mx-auto" alt="" src={img} />
+            </SwiperSlide>
+          )
+        })}
       </Swiper>
       <Swiper
         onSwiper={setThumbsSwiper}
@@ -47,11 +49,13 @@ export default function ProductImage({images}) {
         className="mySwiper bg-white p-4 border border-gray-600 m-2">
         {/* //? Load image  */}
 
-        {images.map((img, _i) => (
-          <SwiperSlide key={_i}>
-            <img className='w-full h-full' alt="" src={img} />
-          </SwiperSlide>
-        ))}
+        {images.map((img, _i) => {
+          return (
+            <SwiperSlide key={_i}>
+              <img className='w-full h-full' alt="" src={img} />
+            </SwiperSlide>
+          )
+        })}
       </Swiper>
     </div>
   );

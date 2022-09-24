@@ -15,8 +15,8 @@ const Footer = lazy(() => import("../../shared/footer/footer"));
 const Home = () => {
   return (
     <>
-      <Suspense fallback={<Loader />}>
         <Navigation />
+      <Suspense fallback={<Loader />}>
         <Carousel />
         <Category />
         <div className="mx-auto bg-white sm:w-11/12  lg:w-10/12">
@@ -26,8 +26,8 @@ const Home = () => {
           <LatestDeal />
           <ProductCategory />
         </div>
-        <Footer />
       </Suspense>
+        <Footer />
     </>
   );
 };
