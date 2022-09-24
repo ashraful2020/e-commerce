@@ -3,16 +3,8 @@ import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import Loader from './components/shared/loader/loader';
 import AuthProvider from './app/AuthProvider';
-import MyOrder from './components/dashboard/myOrder/myOrder';
-
-// import CategoryProducts from './components/home/categoryProducts';
-// import Checkout from './components/cart/checkout/checkout';
-// import DashboardHome from './components/dashboard/dashboardHome/dashboardHome';
-// import Address from './components/dashboard/address/address';
-// import PaymentOption from './components/dashboard/paymentOption/paymentOption';
-// import Return from './components/dashboard/return/return';
-// import Cancel from './components/dashboard/cancel/cancel';
-
+const MyOrder = lazy(() => import("./components/dashboard/myOrder/myOrder"));
+const Voucher = lazy(() => import("./components/dashboard/voucher/voucher"));
 const CategoryProducts = lazy(() => import("./components/home/categoryProducts"));
 const Checkout = lazy(() => import("./components/cart/checkout/checkout"));
 const DashboardHome = lazy(() => import("./components/dashboard/dashboardHome/dashboardHome"));
@@ -26,21 +18,17 @@ const Register = lazy(() => import("./components/shared/register/register"));
 const Cart = lazy(() => import("./components/cart/cart"));
 const Profile = lazy(() => import("./components/dashboard/profile/profile"));
 const PrivateRoute = lazy(() => import("./components/shared/privateRoute/privateRoute"));
-const SearchByCategory = lazy(() => import("./components/home/searchByCategory/searchByCategory"));
+// const SearchByCategory = lazy(() => import("./components/home/searchByCategory/searchByCategory"));
 
 
-
-
-
-
-
-
+// const name = lazy(() => import(""));
 // const name = lazy(() => import(""));
 // const name = lazy(() => import(""));
 const ProductDetail = React.lazy(() =>
   import('./components/home/productDetail/productDetail'),
 );
 function App() {
+  console.log('render')
   // http.get("/product").then((res) => console.log(res)); 
   // http.get("/product/632056db75cb9a5e1ada159e").then((res) => console.log(res)); 
   // http.get("/category").then((res) => console.log(res)); 
@@ -88,6 +76,7 @@ function App() {
             <Route path="return" element={<Return />} />
             <Route path="cancel" element={<Cancel />} />
             <Route path="my-orders" element={<MyOrder />} />
+            <Route path="voucher" element={<Voucher />} />
           </Route>
 
           <Route path="/login" element={<Login />} />

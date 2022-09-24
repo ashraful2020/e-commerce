@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import Button from '../../custom/components/Button';
 
-const DashboardRoute = memo(() => {
+const MerchantRoute = memo(() => {
     const { handleLogOut } = useAuth();
     return (<>
-        <h1 className='text-xl font-bold'>Manage My Account</h1>
+        <h1 className='text-xl font-bold'>Manage Shop</h1>
         <Link className='d-link' to="/account/my-profile">My Profile </Link>
         <Link className='d-link' to="/account/address">Address Book</Link>
         <Link className='d-link' to="/account/payment-option">My Payment Option</Link>
@@ -22,4 +22,4 @@ const DashboardRoute = memo(() => {
     );
 });
 
-export default DashboardRoute;
+export default MerchantRoute;
