@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import Button from '../../custom/components/Button';
-import PlusIcon from '../../custom/icons/plusIcon';
+ 
 
 const Address = memo(() => {
     const user = {
@@ -8,8 +8,7 @@ const Address = memo(() => {
         address: "kasba",
         region: 'brahamnbaria',
         phone: "028893839",
-    }
-    const cart = []
+    } 
     return (
         <div>
             <h1 className='text-2xl py-8 text-black font-serif'>My Address </h1>
@@ -45,7 +44,7 @@ const Address = memo(() => {
                     </tbody>
                 </table>
 
-                <Button icon="icon" title="+ ADD NEW ADDRESS" />
+                <Button  title="+ ADD NEW ADDRESS" />
             </div>
         </div>
     );

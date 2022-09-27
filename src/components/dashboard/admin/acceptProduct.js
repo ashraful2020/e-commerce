@@ -1,11 +1,11 @@
 import React, { memo } from 'react';
 
-const AddProduct = memo(() => {
+const AcceptProduct = memo(() => {
     return (
         <div>
-AddProduct
+            Accept Product
         </div>
     );
 });
 
-export default AddProduct;
+export default AcceptProduct;

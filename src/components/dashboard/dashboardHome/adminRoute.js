@@ -6,11 +6,11 @@ import Button from '../../custom/components/Button';
 const AdminRoute = memo(() => {
     const { handleLogOut } = useAuth();
     return (<>
-        <h1 className='text-xl font-bold'>Manage Dashboard </h1>
+        <h1 className='text-xl font-bold'>Manage Dashboard </h1>  
         <Link className='d-link' to="/account/my-profile">My Profile </Link>  
         <Link className='d-link' to="/account/available-voucher">Available voucher</Link>
-        <Link className='d-link' to="/account/add-product">Add Product</Link>
-        <Link className='d-link' to="/account/update-product">Update Product</Link>
+        <Link className='d-link' to="/account/accept-product">accept Product</Link>
+        <Link className='d-link' to="/account/manage-product">Manage Product</Link>
         <Link className='d-link' to="/account/order-cancel"> order cancel</Link>
         <Link className='d-link' to="/account/order-status">order status</Link>
         <Link className='d-link' to="/account/return-req">return request </Link>

@@ -31,7 +31,7 @@ export default function ProductImage({ images }) {
         modules={[FreeMode, Navigation, Thumbs, Pagination]}
         className="mySwiper2">
         {/* //? Load image  */}
-        {images.map((img, _i) => {
+        {images?.map((img, _i) => {
           return (
             <SwiperSlide key={_i}>
               <img className="h-96 w-80 mx-auto" alt="" src={img} />

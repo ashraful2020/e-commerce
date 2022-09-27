@@ -86,7 +86,7 @@ const Cart = memo(() => {
           </> : <>
             <p className='mx-auto text-xl'>Your cart is currently empty.
 
-              <Link to="/">  <Button icon="abc" color="bg-orange-400 mt-10" title="Return to Shop" />
+              <Link to="/">  <Button color="bg-orange-400 mt-10" title="Return to Shop" />
               </Link>
             </p>
           </>
