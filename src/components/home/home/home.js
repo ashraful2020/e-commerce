@@ -13,6 +13,7 @@ const Footer = lazy(() => import("../../shared/footer/footer"));
 // const  a = lazy(() => import(""));
 
 const Home = () => {
+    document.title = 'Amar Store';
   return (
     <>
         <Navigation />

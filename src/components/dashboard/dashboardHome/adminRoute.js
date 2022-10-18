@@ -9,12 +9,15 @@ const AdminRoute = memo(() => {
         <h1 className='text-xl font-bold'>Manage Dashboard </h1>  
         <Link className='d-link' to="/account/my-profile">My Profile </Link>  
         <Link className='d-link' to="/account/available-voucher">Available voucher</Link>
+        <Link className='d-link' to="/account/all-product">All Product</Link>
         <Link className='d-link' to="/account/accept-product">accept Product</Link>
         <Link className='d-link' to="/account/manage-product">Manage Product</Link>
         <Link className='d-link' to="/account/order-cancel"> order cancel</Link>
         <Link className='d-link' to="/account/order-status">order status</Link>
         <Link className='d-link' to="/account/return-req">return request </Link>
         <Link className='d-link' to="/account/merchant">MerchantAccount</Link>
+        <Link className='d-link' to="/account/flash-product">Flash product </Link>
+        <Link className='d-link' to="/account/latest-deal">latest Deal </Link>
         <Button color="px-8 py-2 text-black bg-orange-400 mt-8" title="Log out" onClick={handleLogOut}></Button>
     </>
     );

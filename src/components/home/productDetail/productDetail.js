@@ -8,9 +8,11 @@ import PlusIcon from '../../custom/icons/plusIcon';
 import ProductImage from './productImage';
 import {  useDispatch } from 'react-redux'
 import { add_to_cart } from '../../../features/cartSlice';
+import Loader from '../../shared/loader/loader';
 const ProductDetail = memo((props) => {
   const location = useLocation();
   const [product, setProduct] = useState({});
+  console.log("🚀 ~ file: productDetail.js ~ line 14 ~ ProductDetail ~ product", product?"hi":"hello")
   useEffect(() => {
     http.get(location.pathname).then((res) => setProduct(res));
   }, [location.pathname]); 
@@ -22,13 +24,14 @@ const ProductDetail = memo((props) => {
     detail2,
     detail3,
   ]
+  
   const productInfo = {
     model: "DLH LBA 482q",
     brand: "ADDIDAS",
     material: "fixed"
   }
-
   const dispatch = useDispatch();
+ if (!_id) return <Loader />;
   return (
     <div className="mx-auto pt-12 w-10/12 ">
       {/*  Product info and order info  */}
