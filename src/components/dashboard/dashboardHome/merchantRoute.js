@@ -12,7 +12,7 @@ const MerchantRoute = memo(() => {
         <Link className='d-link' to="/account/add-product">Add Product</Link>
         <Link className='d-link' to="/account/update-product">Update Product</Link>
         <Link className='d-link' to="/account/payment-option">Payment Option</Link>
-        <Button color="px-8 py-2 text-black bg-orange-400 mt-8" title="Log out" onClick={handleLogOut}></Button> </>
+        <Button color="px-8 py-2 text-black bg-orange-400 my-4" title="Log out" onClick={handleLogOut}></Button> </>
     );
 });
 

@@ -18,7 +18,7 @@ const AdminRoute = memo(() => {
         <Link className='d-link' to="/account/merchant">MerchantAccount</Link>
         <Link className='d-link' to="/account/flash-product">Flash product </Link>
         <Link className='d-link' to="/account/latest-deal">latest Deal </Link>
-        <Button color="px-8 py-2 text-black bg-orange-400 mt-8" title="Log out" onClick={handleLogOut}></Button>
+        <Button color="px-8 py-2 text-black bg-orange-400 my-4" title="Log out" onClick={handleLogOut}></Button>
     </>
     );
 });

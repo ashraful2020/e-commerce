@@ -24,7 +24,7 @@ const DashboardHome = memo(() => {
                 <div className='md:w-2/12'>
                     {RouteFor(dummyUser.role)}
                 </div>
-                <div className=' md:w-10/12'>
+                <div className='md:w-10/12'>
                     <Outlet />
                 </div>
             </div>

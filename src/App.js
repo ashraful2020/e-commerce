@@ -14,10 +14,11 @@ const PrivateRoute = lazy(() => import("./components/shared/privateRoute/private
 const CategoryProducts = lazy(() => import("./components/home/categoryProducts"));
 const Checkout = lazy(() => import("./components/cart/checkout/checkout"));
 const DashboardHome = lazy(() => import("./components/dashboard/dashboardHome/dashboardHome"));
+const UpdateProductType = lazy(() => import("./components/dashboard/admin/updateProductType"));
 
 // const name = lazy(() => import(""));
 // const name = lazy(() => import(""));
-// const name = lazy(() => import(""));
+
 const ProductDetail = React.lazy(() =>
   import('./components/home/productDetail/productDetail'),
 );
@@ -25,7 +26,6 @@ const ProductDetail = React.lazy(() =>
 const filteredRoutes = routes.filter(route => route.roles.includes(dummyUser.role));
 
 function App() {
-  console.log('render')
   // http.get("/").then((res) => console.log(res));
   return (
     <AuthProvider className="App">
@@ -35,10 +35,10 @@ function App() {
           <Route path="/about" element={'About Page'} />
           <Route path="/product/:id" element={<ProductDetail />} />
           <Route path="/flash-product/:id" element={<ProductDetail />} />
+          <Route path="/products/:id" element={<UpdateProductType />} />
           <Route path="/latest-deal/:id" element={<ProductDetail />} />
           <Route path="/contact" element={'contact Page'} />
           <Route path="/search-by-category" element={< CategoryProducts />} />
-          
           <Route path="/cart" element={
             <PrivateRoute>
               <Cart />

@@ -16,7 +16,7 @@ const DashboardRoute = memo(() => {
         </Link>
         <Link className='d-link' to="/account/return">My Return</Link>
         <Link className='d-link' to="/account/cancel">My Cancel </Link>
-        <Button color="px-8 py-2 text-black bg-orange-400 mt-8" title="Log out" onClick={handleLogOut}></Button>
+        <Button color="px-8 py-2 text-black bg-orange-400 my-4" title="Log out" onClick={handleLogOut}></Button>
     </>
     );
 });

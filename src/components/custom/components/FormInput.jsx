@@ -1,7 +1,7 @@
 import React, {memo} from 'react';
 
 const FormInput = memo(
-  ({type, name, placeholder, onChange, required = false}) => {
+  ({type, name, placeholder, onChange, required = false, defaultValue}) => {
     return (
       <input
         className="m-1 mx-auto w-11/12 rounded-sm border-[1px]
@@ -11,9 +11,10 @@ const FormInput = memo(
         onChange={onChange}
         name={name}
         required={required}
+        defaultValue={defaultValue}
       />
     );
   },
 );
-
+  
 export default FormInput;

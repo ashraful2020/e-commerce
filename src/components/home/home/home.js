@@ -5,18 +5,19 @@ const Carousel = lazy(() => import('../../custom/carousel/carousel'));
 const FlashSale = lazy(() => import('../flashSale/flashSale'));
 const SmallDetails = lazy(() => import('../smallDetails'));
 const Trending = lazy(() => import('../trendingProduct/trending'));
-const ProductCategory = lazy(() =>import('../productCategory'));
+const ProductCategory = lazy(() => import('../productCategory'));
 const Category = lazy(() => import('../category'));
 const LatestDeal = lazy(() => import('../latestDeal/latestDeal'));
-const Footer = lazy(() => import("../../shared/footer/footer")); 
+const Footer = lazy(() => import("../../shared/footer/footer"));
 // const  a = lazy(() => import(""));
 // const  a = lazy(() => import(""));
 
+
 const Home = () => {
-    document.title = 'Amar Store';
+  document.title = 'Amar Store';
   return (
     <>
-        <Navigation />
+      <Navigation />
       <Suspense fallback={<Loader />}>
         <Carousel />
         <Category />
@@ -28,7 +29,7 @@ const Home = () => {
           <ProductCategory />
         </div>
       </Suspense>
-        <Footer />
+      <Footer />
     </>
   );
 };
