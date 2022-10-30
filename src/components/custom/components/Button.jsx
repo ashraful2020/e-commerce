@@ -7,9 +7,9 @@ const Button = memo(({color, title, onClick, icon}) => {
       <button
         className={`flex gap-3 items-center justify-evenly  ${
           color ? color : 'bg-blue-300'
-        } px-20 py-3  text-xl text-white`}
+        } px-20 py-3  m-2 text-xl text-white`}
         onClick={onClick}>
-        {icon === 'cart' && <CartIcon />} {title}{' '}
+        {icon === 'cart' && <CartIcon />} {title}
         {icon === 'google' && <GoogleIcon />}
       </button>
  

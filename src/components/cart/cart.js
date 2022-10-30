@@ -19,6 +19,8 @@ const Cart = memo(() => {
   document.title ="🛒Cart | Amar Store";
   const dispatch = useDispatch();
   const [cart] = useCart();  
+  console.log("🚀 ~ file: cart.js ~ line 22 ~ Cart ~ cart", cart)
+ 
   return (
     <div className="flex w-full">
       {cart?.length ? (
@@ -44,7 +46,7 @@ const Cart = memo(() => {
               <tbody>
                 {cart?.map(product => {
                   return (
-                    <React.Fragment key={product._id}>
+                    <React.Fragment key={product.id}>
                       <tr className="border-b-[.01px] bg-white">
                         <th scope="row" className="py-4 px-6 ">
                           <div className="flex items-center gap-4">
@@ -61,14 +63,14 @@ const Cart = memo(() => {
                           <div className="flex items-center">
                             <MinusIcon
                               onClick={() =>
-                                dispatch(decrement_quantity(product?._id))
+                                dispatch(decrement_quantity(product?.id))
                               }
                               size={1}
                             />{' '}
                             {product?.quantity}
                             <PlusIcon
                               onClick={() =>
-                                dispatch(increment_quantity(product?._id))
+                                dispatch(increment_quantity(product?.id))
                               }
                               size={1}
                             />
@@ -79,7 +81,7 @@ const Cart = memo(() => {
                         </td>
                         <td
                           onClick={e =>
-                            dispatch(delete_from_cart(product._id))
+                            dispatch(delete_from_cart(product.id))
                           }>
                           <DeleteIcon />
                         </td>

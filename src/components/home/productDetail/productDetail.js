@@ -1,37 +1,37 @@
 import React, { memo, useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import http from '../../../services/http.service';
 import Button from '../../custom/components/Button';
 import ArrowIcon from '../../custom/icons/ArrowIcon';
 import MinusIcon from '../../custom/icons/minusIcon';
 import PlusIcon from '../../custom/icons/plusIcon';
 import ProductImage from './productImage';
-import {  useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { add_to_cart } from '../../../features/cartSlice';
-import Loader from '../../shared/loader/loader';
 const ProductDetail = memo((props) => {
-  const location = useLocation();
+  const dispatch = useDispatch();
   const [product, setProduct] = useState({});
-  console.log("🚀 ~ file: productDetail.js ~ line 14 ~ ProductDetail ~ product", product?"hi":"hello")
+  // console.log("🚀 ~ file: productDetail.js ~ line 14 ~ ProductDetail ~ product", product)
+  const { id } = useParams();
+  console.log(id, 'la')
+  // TODO 
   useEffect(() => {
-    http.get(location.pathname).then((res) => setProduct(res));
-  }, [location.pathname]); 
-  
-  const { name,price,stock,img,detail,detail2,detail3,_id} = product; 
+    http.get(`/product/${id}`).then((res) => setProduct(res));
+  }, [id]);
+
+  const { name, price, stock, img, detail, detail2, detail3 } = product;
   const images = [
     img,
     detail,
     detail2,
     detail3,
   ]
-  
+
   const productInfo = {
     model: "DLH LBA 482q",
     brand: "ADDIDAS",
     material: "fixed"
   }
-  const dispatch = useDispatch();
- if (!_id) return <Loader />;
   return (
     <div className="mx-auto pt-12 w-10/12 ">
       {/*  Product info and order info  */}
@@ -56,8 +56,9 @@ const ProductDetail = memo((props) => {
 
           <div className="flex justify-evenly">
             {/* A button that will redirect to the checkout page.  */}
+            {/*  TODO */}
             <Button color="bg-sky-500" icon="ab" title="Buy Now " />
-            <Button icon="cart" color="bg-orange-500" title="Add To cart" onClick={(e)=>dispatch(add_to_cart(_id))} />
+            <Button icon="cart" color="bg-orange-500" title="Add To cart" onClick={(e) => dispatch(add_to_cart(id))} />
           </div>
         </div>
       </div>
@@ -91,6 +92,6 @@ const ProductDetail = memo((props) => {
       </div>
     </div>
   );
-});
 
+});
 export default ProductDetail;

@@ -8,6 +8,7 @@ const MerchantRoute = memo(() => {
     return (<>
         <h1 className='text-xl font-bold'>Manage Shop</h1>
         <Link className='d-link' to="/account/my-profile">My Profile </Link>
+        <Link className='d-link' to="/account/all-product">All products</Link>
         <Link className='d-link' to="/account/address">Pick up Address</Link>
         <Link className='d-link' to="/account/add-product">Add Product</Link>
         <Link className='d-link' to="/account/update-product">Update Product</Link>

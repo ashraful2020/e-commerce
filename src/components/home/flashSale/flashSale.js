@@ -11,7 +11,6 @@ const FlashSale = () => {
       .then((res) => {
         setProducts(res.data)
         setTime({ ending: res?.flashEnding, starting: res?.flashStarting })
-
       });
   }, []);
   return (
@@ -33,9 +32,9 @@ const FlashSale = () => {
       <hr />
       <div className="mx-auto grid grid-cols-3 gap-4 py-4 md:grid-cols-5 lg:gap-6">
         {products.map(product => {
-          return <Link to={`/flash-product/${product._id}`}
+          return <Link to={`/flash-product/${product.id}`}
             state="hello"
-            key={product._id}
+            key={product.id}
             className="mx-auto text-left hover:shadow-xl lg:p-2">
 
             <img src={product.img} className="mx-auto md:h-32 md:w-32" alt="" />
@@ -44,14 +43,14 @@ const FlashSale = () => {
                 {product.name.slice(0, 15)}
               </h1>
               <h1>
-                ৳ {product.price - (product.discount / 100) * product.price}
+                ৳ {product.price - (product.stock / 100) * product.price}
               </h1>
               <div className="flex text-sm">
                 <h1 className="text-gray-400 line-through">
                   ৳ {product.price}
                 </h1>
                 <ArrowIcon />
-                <h1> {product.discount} %</h1>
+                <h1> {product.stock} %</h1>
               </div>
             </div>
           </Link>

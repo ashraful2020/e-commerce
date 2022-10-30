@@ -1,10 +1,10 @@
-import React, { Suspense, lazy } from 'react';
-import './App.css';
+import React, { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Loader from './components/shared/loader/loader';
+import './App.css';
 import AuthProvider from './app/AuthProvider';
-import { routes } from './routes/routes';
+import Loader from './components/shared/loader/loader';
 import dummyUser from './dummyUser';
+import { routes } from './routes/routes';
 
 const Home = lazy(() => import('./components/home/home/home'));
 const Login = lazy(() => import("./components/shared/login/login"));
@@ -14,16 +14,13 @@ const PrivateRoute = lazy(() => import("./components/shared/privateRoute/private
 const CategoryProducts = lazy(() => import("./components/home/categoryProducts"));
 const Checkout = lazy(() => import("./components/cart/checkout/checkout"));
 const DashboardHome = lazy(() => import("./components/dashboard/dashboardHome/dashboardHome"));
-const UpdateProductType = lazy(() => import("./components/dashboard/admin/updateProductType"));
-
-// const name = lazy(() => import(""));
-// const name = lazy(() => import(""));
-
-const ProductDetail = React.lazy(() =>
-  import('./components/home/productDetail/productDetail'),
-);
-
+const UpdateProductType = lazy(() => import("./components/dashboard/merchant/updateProduct"));
+const ProductDetail = React.lazy(() => import('./components/home/productDetail/productDetail'));
 const filteredRoutes = routes.filter(route => route.roles.includes(dummyUser.role));
+
+
+// const name = lazy(() => import(""));
+// const name = lazy(() => import(""));
 
 function App() {
   // http.get("/").then((res) => console.log(res));
@@ -35,7 +32,7 @@ function App() {
           <Route path="/about" element={'About Page'} />
           <Route path="/product/:id" element={<ProductDetail />} />
           <Route path="/flash-product/:id" element={<ProductDetail />} />
-          <Route path="/products/:id" element={<UpdateProductType />} />
+          <Route path="/update-product/:id" element={<UpdateProductType />} />
           <Route path="/latest-deal/:id" element={<ProductDetail />} />
           <Route path="/contact" element={'contact Page'} />
           <Route path="/search-by-category" element={< CategoryProducts />} />

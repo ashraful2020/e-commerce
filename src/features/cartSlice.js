@@ -9,11 +9,10 @@ export const cartSlice = createSlice({
     name: "cart",
     initialState,
     reducers: {
-        add_to_cart: (state, action) => {
+        add_to_cart: (state, action) => { 
             const product = { ...state.product }
             const newProduct = Object.keys(product);
-            const exists = newProduct.find(key => key === action.payload)
-            console.log("🚀 ~ file: cartSlice.js ~ line 16 ~ exists", exists)
+            const exists = newProduct.find(key => key === action.payload) 
             if (!exists) {
                 state.product[action.payload] = 1;
                 state.totalItem += 1;

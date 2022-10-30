@@ -6,6 +6,8 @@ import CartIcon from '../../custom/icons/cartIcon';
 import profileIcon from '../../custom/icons/profileIcon';
 import { Link } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
+import http from '../../../services/http.service';
+import Close from '../../custom/icons/close';
 
 const Navigation = () => {
   const Menus = [
@@ -17,22 +19,35 @@ const Navigation = () => {
   const [active, setActive] = useState(0);
   const { user } = useAuth();
   const [searchValue, setSearchValue] = useState('');
-  const [products, setProducts] = useState([])
+  const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch('./products.json')
-      .then(res => res.json())
-      .then(data => setProducts(data))
+    http.get("/product/search-product").then(res => setProducts(res))
   }, []);
+
+  const handleChange = (e) => {
+    setSearchValue(e.target.value);
+  }
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    const newProduct = products.filter(product => product.name.toLowerCase().match(searchValue.toLowerCase()))
-    console.log(newProduct);
-    console.log(searchValue);
-
+    setSearchValue(searchValue)
   }
+
+
+  const filteredProduct = products.filter((item) => {
+    const searchTerm = searchValue.toLowerCase();
+    const name = item.name.toLowerCase();
+    return (
+      (searchTerm &&
+        name.startsWith(searchTerm) &&
+        name !== searchTerm) || name.includes(searchTerm)
+    );
+  })
+    .slice(0, 6)
+
+
   return (
     <div>
-      <div className="my-2 hidden items-center justify-around md:flex">
+      <div className="relative my-2 hidden items-center justify-around md:flex">
         <Link to="/" className="w-40">
           <img className="h-20 w-20" src={logo} alt="logo" />
         </Link>
@@ -44,9 +59,9 @@ const Navigation = () => {
                 className="z-20 block h-14 w-full rounded-sm border border-gray-200   bg-gray-50 p-2.5 text-xl text-gray-900 focus:border-blue-200 focus:outline-none"
                 placeholder="Search your product"
                 required={true}
-                onChange={(e) => setSearchValue(e.target.value)}
+                value={searchValue}
+                onChange={handleChange}
               />
-
               <button
                 // type="submit"
                 className="absolute top-0 right-0 h-14 rounded-sm bg-blue-700 p-2.5 px-8 text-sm font-medium text-white ">
@@ -80,6 +95,26 @@ const Navigation = () => {
           <Link to="/cart">
             <CartIcon cart={'cart'} />
           </Link>
+        </div>
+      </div>
+      {/*  Search items  */}
+      <div className='relative flex items-center justify-center'>
+        <div className="absolute w-full top-0 bg-gray-50/[.7] z-50">
+          {filteredProduct.length > 0 && searchValue && <Close onClick={() => setSearchValue("")} />}
+          {
+            searchValue && filteredProduct.map((product) => (
+              <Link to={`/product/${product.id}`} key={product.id}>
+                <div className="flex items-center  w-3/5 mx-auto py-2 px-3 gap-4 bg-gray-50 hover:bg-blue-100">
+                  <img
+                    src={product?.img}
+                    className="h-16 w-16"
+                    alt="cart images"
+                  />
+                  <p>{product?.name} </p>
+                </div>
+              </Link>
+            ))
+          }
         </div>
       </div>
       {/*  Mobile menu  */}

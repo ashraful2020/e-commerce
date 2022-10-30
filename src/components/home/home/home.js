@@ -1,6 +1,6 @@
 import React, { Suspense, lazy } from 'react';
-import Loader from '../../shared/loader/loader';
-const Navigation = lazy(() => import('../../shared/navigation/navigation'));
+import Loader from '../../shared/loader/loader'; 
+import Navigation from '../../shared/navigation/navigation';
 const Carousel = lazy(() => import('../../custom/carousel/carousel'));
 const FlashSale = lazy(() => import('../flashSale/flashSale'));
 const SmallDetails = lazy(() => import('../smallDetails'));

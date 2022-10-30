@@ -1,5 +1,6 @@
 import React, { memo } from 'react';
 import districtName from '../../../assets/districtName';
+import withLayout from '../../../hocs/withLayout';
 import FormInput from '../../custom/components/FormInput';
 import CheckoutInfo from './checkoutInfo';
 
@@ -24,7 +25,7 @@ const Checkout = memo(() => {
             <CheckoutInfo />
 
         </div>
-    );
+    );  
 });
 
-export default Checkout;    
+export default withLayout(Checkout);    

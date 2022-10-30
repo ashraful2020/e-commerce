@@ -1,8 +1,16 @@
 import * as React from 'react';
-
-function DeleteIcon(props,{onClick}) {
+//  {
+//    icon === 'google' && <GoogleIcon />;
+//  }
+function DeleteIcon(props) {
+  const { onClick, icon } = props;
+  console.log(icon)
   return (
-    <button onClick={onClick} className="rounded-full bg-rose-50 p-2 hover:bg-red-600 hover:text-white">
+    <button
+      onClick={onClick}
+      className={`rounded-full ${
+        icon ? 'bg-red-800':'bg-rose-50'
+      }  p-2 hover:bg-red-600 hover:text-white`}>
       <svg
         stroke="currentColor"
         fill="currentColor"

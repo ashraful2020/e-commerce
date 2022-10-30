@@ -9,14 +9,12 @@ const rootReducer = combineReducers({
 })
 const persistConfig = {
   key: 'root',
-  version: 1,
   storage,
   blacklist: ['counter']
 }
 
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
-
 
 const store = configureStore({
   reducer: persistedReducer,

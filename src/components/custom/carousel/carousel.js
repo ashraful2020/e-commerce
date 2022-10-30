@@ -34,7 +34,7 @@ const Carousel = () => {
           <img className="home-images" src={img3} alt="" />
         </SwiperSlide>
       </Swiper>
-    
+
     </div>
   );
 };

@@ -1,51 +1,26 @@
-import {lazy} from 'react';
-
-const AcceptProduct = lazy(() =>
-  import('../components/dashboard/admin/acceptProduct'),
-);
-const ManageProduct = lazy(() =>
-  import('../components/dashboard/admin/manageProduct'),
-);
+import { lazy } from 'react';
+const AcceptProduct = lazy(() => import('../components/dashboard/admin/acceptProduct'));
+const ManageProduct = lazy(() => import('../components/dashboard/admin/manageProduct'));
 const Address = lazy(() => import('../components/dashboard/address/address'));
-const AddProduct = lazy(() =>
-  import('../components/dashboard/addProduct/addProduct'),
-);
+const AddProduct = lazy(() => import('../components/dashboard/addProduct/addProduct'));
 const AllOrders = lazy(() => import('../components/dashboard/admin/allOrders'));
-const AvailableVoucher = lazy(() =>
-  import('../components/dashboard/admin/availableVoucher'),
-);
-const MerchantAccount = lazy(() =>
-  import('../components/dashboard/admin/merchantAccount'),
-);
-const OrderCancelRequest = lazy(() =>
-  import('../components/dashboard/admin/orderCancelRequest'),
-);
-const ReturnRequest = lazy(() =>
-  import('../components/dashboard/admin/returnRequest'),
-);
-const UpdateProduct = lazy(() =>
-  import('../components/dashboard/updateProduct/updateProduct'),
-);
+const AvailableVoucher = lazy(() => import('../components/dashboard/admin/availableVoucher'));
+const MerchantAccount = lazy(() => import('../components/dashboard/admin/merchantAccount'));
+const OrderCancelRequest = lazy(() => import('../components/dashboard/admin/orderCancelRequest'));
+const ReturnRequest = lazy(() => import('../components/dashboard/admin/returnRequest'));
+const UpdateProduct = lazy(() => import('../components/dashboard/merchant/updateProduct/updateProduct'));
 const Cancel = lazy(() => import('../components/dashboard/cancel/cancel'));
 const MyOrder = lazy(() => import('../components/dashboard/myOrder/myOrder'));
-const PaymentOption = lazy(() =>
-  import('../components/dashboard/paymentOption/paymentOption'),
-);
+const PaymentOption = lazy(() => import('../components/dashboard/paymentOption/paymentOption'));
 const Profile = lazy(() => import('../components/dashboard/profile/profile'));
 const Return = lazy(() => import('../components/dashboard/return/return'));
 const Voucher = lazy(() => import('../components/dashboard/voucher/voucher'));
-const FlashProduct = lazy(() =>
-  import('../components/dashboard/admin/flashProduct'),
-);
-const LatestDeal = lazy(() =>
-  import('../components/dashboard/admin/latestDeal'),
-);
-const AllProducts = lazy(() =>
-  import('../components/dashboard/allProducts/allProducts'),
-);
+const FlashProduct = lazy(() => import('../components/dashboard/admin/flashProduct'));
+const LatestDeal = lazy(() => import('../components/dashboard/admin/latestDeal'));
+const AllProducts = lazy(() => import('../components/dashboard/merchant/allProducts/allProducts'));
+
 // const name = lazy(() => import(""));
-// const name = lazy(() => import(""));
-// const name = lazy(() => import(""));
+
 export const routes = [
   {
     path: '',
@@ -108,6 +83,12 @@ export const routes = [
     name: 1,
     roles: ['merchant'],
   },
+  {
+    path: 'all-product',
+    element: <AllProducts />,
+    name: 1,
+    roles: ["merchant"],
+  },
   // Admin Routes Start here
   {
     path: 'available-voucher',
@@ -166,12 +147,7 @@ export const routes = [
     name: 1,
     roles: ['admin'],
   },
-  {
-    path: 'all-product',
-    element: <AllProducts />,
-    name: 1,
-    roles: ['admin'],
-  },
+
 
   // {
   //     path: '',
@@ -180,13 +156,3 @@ export const routes = [
   //     roles: ['user', "merchant", "admin"]
   // },
 ];
-
-/**
- * Add product
- * update product
- * my profile
- * all products
- * Address
- * statistic
- *
- */

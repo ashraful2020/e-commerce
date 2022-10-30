@@ -63,9 +63,9 @@ const ProductCategory = memo(() => {
               return (
                 <SwiperSlide key={data._id}>
                   <Link to={`/search-by-category?name=${data.name}`}>
-                    <div>
+                    <div className="mb-20">
                       <img src={data.img} alt="" srcSet="" />
-                      <h1>Category Name  </h1>
+                      <h1 className="text-3xl capitalize text-blue-800 -mt-20">{data?.name}</h1>
                     </div>
                   </Link>
                 </SwiperSlide>

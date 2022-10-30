@@ -10,8 +10,8 @@ const CartInfo = memo(() => {
     for (const product of cart) {
         subtotal = subtotal + product?.price * product?.quantity;
     }
-    const vat = (subtotal * 0.05).toFixed(2);
-    const shipping = subtotal > 50000 ? 0 : 15;
+    const vat = (subtotal * 0.02).toFixed(2);
+    const shipping = subtotal > 10000 ? 0 : 15;
     const total = subtotal + shipping + Number(vat);
     return (
         <div className='w-3/12 mx-auto h-full border border-blue-700'>

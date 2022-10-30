@@ -16,5 +16,5 @@ const FormInput = memo(
     );
   },
 );
-  
+
 export default FormInput;

@@ -9,7 +9,7 @@ const Trending = memo(() => {
   return (
     <div className="mx-auto grid grid-flow-col grid-rows-2 gap-5 ">
       {/* first */}
-      <Link to="/product/632056db75cb9a5e1ada159f" className="col-span-1 row-span-2 hover:brightness-95">
+      <Link to="/product/dbf7ab3f-b383-4d95-8ab7-f55fcf6fa5f2" className="col-span-1 row-span-2 hover:brightness-95">
         <Details
           title="Big patterns are back in fashion"
           description="Lorem ipsum dolor sit amet consectetur adipisicing elit. "
@@ -19,7 +19,7 @@ const Trending = memo(() => {
         <img src={img1} alt="" />
       </Link>
       {/* second */}
-      <Link to="/product/632056db75cb9a5e1ada159f" className="row-start-3 mx-5 hover:brightness-95 md:mx-0 lg:row-start-1">
+      <Link to="/product/4bf9798f-63bc-4a83-b0c6-6a3b816fe922" className="row-start-3 mx-5 hover:brightness-95 md:mx-0 lg:row-start-1">
         <Details
           title="The latest men's trends this season"
           description="Don't miss this opportunity ."
@@ -29,7 +29,7 @@ const Trending = memo(() => {
         <img src={img2} alt="" />
       </Link>
       {/*  third */}
-      <Link to="/product/632056db75cb9a5e1ada159f" className="row-start-3 hidden hover:brightness-95   md:block lg:row-start-2">
+      <Link to="/product/30698483-f7aa-49ba-9de9-9070f64dc263" className="row-start-3 hidden hover:brightness-95   md:block lg:row-start-2">
         <Details
           title="Show your fashion with summer shoes"
           description="Don't miss this opportunity ."
