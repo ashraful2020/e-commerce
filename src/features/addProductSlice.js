@@ -10,10 +10,8 @@ const initialState = {
 };
 export const addProductInDatabase = createAsyncThunk(
     "product/addProductInDatabase",
-    async (formData) => { 
+    async (formData) => {
         const res = await http.post("/product", formData);
-        console.log("🚀 ~ file: singlePostSlice.js ~ line 22 ~ res", res);
-        console.log(res.data)
         return res.data;
     }
 );

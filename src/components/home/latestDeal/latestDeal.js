@@ -8,7 +8,6 @@ const LatestDeal = memo(() => {
   useEffect(() => {
     http.get("/latest-deal").then((res) => setProducts(res));
   }, []); 
-  console.log("🚀 ~ file: latestDeal.js ~ line 12 ~ LatestDeal ~ products", products)
   return (
     <div>
       <div className="my-12 items-center justify-center text-left md:flex">

@@ -7,6 +7,7 @@ import CheckoutInfo from './checkoutInfo';
 const Checkout = memo(() => {
     document.title = "Checkout | Amar Store"
     const district = districtName.map((name, _i) => <option value={name} key={_i}> {name} </option>)
+    console.log("checkout render.......");
     return (
         <div className='flex w-full'>
             <div className="w-8/12">

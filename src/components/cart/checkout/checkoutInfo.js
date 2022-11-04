@@ -13,7 +13,7 @@ const CheckoutInfo = memo(() => {
     const vat = (subtotal * 0.05).toFixed(2);
     const shipping = subtotal > 50000 ? 0 : 15;
     const total = subtotal + shipping + Number(vat);
-
+    console.log("checkout info render.......");
     return (
         <div className='w-3/12 mx-auto h-full border border-blue-700'>
             <div className='border-b flex justify-between p-3 m-2'> Your order  </div>

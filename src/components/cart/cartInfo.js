@@ -4,14 +4,14 @@ import useCart from '../../hooks/useCart';
 import Button from '../custom/components/Button';
 
 const CartInfo = memo(() => {
-    console.log('render')
+    console.log("cart info render.......");
     const [cart] = useCart()
     let subtotal = 0;
     for (const product of cart) {
         subtotal = subtotal + product?.price * product?.quantity;
     }
-    const vat = (subtotal * 0.02).toFixed(2);
-    const shipping = subtotal > 10000 ? 0 : 15;
+    const vat = (subtotal * 0.01).toFixed(2);
+    const shipping = subtotal > 10000 ? 0 : 10;
     const total = subtotal + shipping + Number(vat);
     return (
         <div className='w-3/12 mx-auto h-full border border-blue-700'>

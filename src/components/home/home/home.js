@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense, lazy } from 'react'; 
 import Loader from '../../shared/loader/loader'; 
 import Navigation from '../../shared/navigation/navigation';
 const Carousel = lazy(() => import('../../custom/carousel/carousel'));
@@ -15,6 +15,7 @@ const Footer = lazy(() => import("../../shared/footer/footer"));
 
 const Home = () => {
   document.title = 'Amar Store';
+ 
   return (
     <>
       <Navigation />

@@ -11,12 +11,15 @@ import {
 } from 'firebase/auth';
 
 import initializeAuthentication from '../firebase/firebase.init';
+import http from '../services/http.service';
 initializeAuthentication();
 const useFirebase = () => {
   const auth = getAuth();
   const googleProvider = new GoogleAuthProvider();
   const [user, setUser] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [currentUser, setCurrentUser] = useState({});
+
 
   const signInWithGoogle = () => {
     return signInWithPopup(auth, googleProvider);
@@ -60,6 +63,14 @@ const useFirebase = () => {
 
     return () => unsubscribe();
   }, [auth]);
+ 
+
+  useEffect(() => {
+    http.get(`/user/${user?.email}`).then((res) => setCurrentUser(res));
+  }, [user?.email]);
+
+  // console.log(user?.photoURL);
+  // console.log(user?.phoneNumber);
   return {
     signInWithGoogle,
     signUpWithEmail,
@@ -69,7 +80,8 @@ const useFirebase = () => {
     setUser,
     saveUserName,
     isLoading,
-    setIsLoading
+    setIsLoading,
+    currentUser
   };
 };
 export default useFirebase;

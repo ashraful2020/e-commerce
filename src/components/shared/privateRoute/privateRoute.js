@@ -6,13 +6,12 @@ import Loader from "../loader/loader";
 const PrivateRoute = ({ children }) => {
     let { user, isLoading } = useAuth();
     let location = useLocation();
-    if (isLoading) {
+    if (isLoading && user) {
         return <Loader />
     }
     if (!user.email) {
         return <Navigate to="/login" state={{ from: location }} replace />;
     }
-
     return children;
 };
 

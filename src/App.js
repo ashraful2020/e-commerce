@@ -1,11 +1,11 @@
 import React, { lazy, Suspense } from 'react';
+import { useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import AuthProvider from './app/AuthProvider';
 import Loader from './components/shared/loader/loader';
 import dummyUser from './dummyUser';
 import { routes } from './routes/routes';
-
 const Home = lazy(() => import('./components/home/home/home'));
 const Login = lazy(() => import("./components/shared/login/login"));
 const Register = lazy(() => import("./components/shared/register/register"));
@@ -21,9 +21,9 @@ const filteredRoutes = routes.filter(route => route.roles.includes(dummyUser.rol
 
 // const name = lazy(() => import(""));
 // const name = lazy(() => import(""));
-
 function App() {
-  // http.get("/").then((res) => console.log(res));
+  const state = useSelector((state) => state)
+  console.log("🚀 ~ file: App.js ~ line 26 ~ App ~ state", state)
   return (
     <AuthProvider className="App">
       <Suspense fallback={<Loader />}>

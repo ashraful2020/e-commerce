@@ -8,13 +8,17 @@ import PlusIcon from '../../custom/icons/plusIcon';
 import ProductImage from './productImage';
 import { useDispatch } from 'react-redux'
 import { add_to_cart } from '../../../features/cartSlice';
+import useAuth from '../../../hooks/useAuth';
 const ProductDetail = memo((props) => {
+  const { id } = useParams();
   const dispatch = useDispatch();
   const [product, setProduct] = useState({});
-  // console.log("🚀 ~ file: productDetail.js ~ line 14 ~ ProductDetail ~ product", product)
-  const { id } = useParams();
-  console.log(id, 'la')
-  // TODO 
+  const { currentUser } = useAuth()
+  const handleAddToCart = (e) => {
+    dispatch(add_to_cart(e))
+  }
+
+  // TODO
   useEffect(() => {
     http.get(`/product/${id}`).then((res) => setProduct(res));
   }, [id]);
@@ -58,7 +62,8 @@ const ProductDetail = memo((props) => {
             {/* A button that will redirect to the checkout page.  */}
             {/*  TODO */}
             <Button color="bg-sky-500" icon="ab" title="Buy Now " />
-            <Button icon="cart" color="bg-orange-500" title="Add To cart" onClick={(e) => dispatch(add_to_cart(id))} />
+            <Button icon="cart" color="bg-orange-500" title="Add To cart" onClick={(e) => handleAddToCart(id)} />
+            {/* <Button icon="cart" color="bg-orange-500" title="Add To cart" onClick={(e) => dispatch(add_to_cart(id))} /> */}
           </div>
         </div>
       </div>
