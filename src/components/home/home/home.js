@@ -1,12 +1,12 @@
-import React, { Suspense, lazy } from 'react'; 
-import Loader from '../../shared/loader/loader'; 
+import React, { lazy, Suspense } from 'react';
+import Loader from '../../shared/loader/loader';
 import Navigation from '../../shared/navigation/navigation';
 const Carousel = lazy(() => import('../../custom/carousel/carousel'));
 const FlashSale = lazy(() => import('../flashSale/flashSale'));
 const SmallDetails = lazy(() => import('../smallDetails'));
 const Trending = lazy(() => import('../trendingProduct/trending'));
 const ProductCategory = lazy(() => import('../productCategory'));
-const Category = lazy(() => import('../category'));
+const Category = lazy(() => import('../category/category'));
 const LatestDeal = lazy(() => import('../latestDeal/latestDeal'));
 const Footer = lazy(() => import("../../shared/footer/footer"));
 // const  a = lazy(() => import(""));
@@ -15,7 +15,7 @@ const Footer = lazy(() => import("../../shared/footer/footer"));
 
 const Home = () => {
   document.title = 'Amar Store';
- 
+
   return (
     <>
       <Navigation />

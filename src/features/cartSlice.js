@@ -23,7 +23,7 @@ export const cartSlice = createSlice({
             else {
                 state.product[action.payload] += 1;
                 console.log("success")
-            } 
+            }
         },
         delete_from_cart: (state, action) => {
             const product = { ...state.product }
@@ -32,7 +32,12 @@ export const cartSlice = createSlice({
             delete state.product[action.payload]
             state.totalItem -= 1;
         },
+        set_cart_product: (state, action) => {
+            const newProduct = Object.keys(action.payload || {});
+            state.product = action.payload
+            state.totalItem = newProduct.length
 
+        },
         increment_quantity: (state, action) => {
             state.product[action.payload] += 1;
         },
@@ -46,6 +51,6 @@ export const cartSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { add_to_cart, increment_quantity, decrement_quantity, delete_from_cart } = cartSlice.actions
+export const { add_to_cart, increment_quantity, decrement_quantity, delete_from_cart, set_cart_product, clear_cart_product } = cartSlice.actions
 
 export default cartSlice.reducer;

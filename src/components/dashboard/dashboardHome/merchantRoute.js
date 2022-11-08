@@ -4,9 +4,10 @@ import useAuth from '../../../hooks/useAuth';
 import Button from '../../custom/components/Button';
 
 const MerchantRoute = memo(() => {
+    
     const { handleLogOut } = useAuth();
     return (<>
-        <h1 className='text-xl font-bold'>Manage Shop</h1>
+        <h1 className='text-xl font-bold'>Manage Shop</h1> 
         <Link className='d-link' to="/account/my-profile">My Profile </Link>
         <Link className='d-link' to="/account/all-product">All products</Link>
         <Link className='d-link' to="/account/address">Pick up Address</Link>

@@ -1,11 +1,13 @@
-import React, { lazy, Suspense } from 'react';
+import React, { lazy, Suspense, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import AuthProvider from './app/AuthProvider';
 import Loader from './components/shared/loader/loader';
 import dummyUser from './dummyUser';
+import useAuth from './hooks/useAuth';
 import { routes } from './routes/routes';
+import http from './services/http.service';
 const Home = lazy(() => import('./components/home/home/home'));
 const Login = lazy(() => import("./components/shared/login/login"));
 const Register = lazy(() => import("./components/shared/register/register"));
@@ -16,14 +18,16 @@ const Checkout = lazy(() => import("./components/cart/checkout/checkout"));
 const DashboardHome = lazy(() => import("./components/dashboard/dashboardHome/dashboardHome"));
 const UpdateProductType = lazy(() => import("./components/dashboard/merchant/updateProduct"));
 const ProductDetail = React.lazy(() => import('./components/home/productDetail/productDetail'));
-const filteredRoutes = routes.filter(route => route.roles.includes(dummyUser.role));
 
 
-// const name = lazy(() => import(""));
-// const name = lazy(() => import(""));
+
+// const name = lazy(() => import("")); 
+
 function App() {
-  const state = useSelector((state) => state)
-  console.log("🚀 ~ file: App.js ~ line 26 ~ App ~ state", state)
+  const email = useSelector((state) => state.auth.email)
+  const [userRole, setUserRole] = useState("user");
+  http.get(`/user/${email}`).then((res) => setUserRole(res?.role));
+  const filteredRoutes = routes.filter(route => route.roles.includes(userRole));
   return (
     <AuthProvider className="App">
       <Suspense fallback={<Loader />}>
@@ -59,6 +63,7 @@ function App() {
           >
             {
               filteredRoutes.map((route, _i) => {
+      
                 return (
                   route.element && (<Route path={route.path} element={route.element} key={_i} />)
                 )

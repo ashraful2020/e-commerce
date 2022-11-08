@@ -6,20 +6,21 @@ import { createSlice } from "@reduxjs/toolkit";
 export const authSlice = createSlice({
     name: "user",
     initialState: {
-        data:null,
-        status:"idle"
+        data: null,
+        status: "idle",
+        email: ""
     },
     reducers: {
-        // login:()
-        // 
-        //
-        //
-        //
-
+        persistedUser: (state, action) => {
+            state.email = action.payload;
+        },
+        clearPersistedUser: (state) => {
+            state.email = ""
+        },
     },
 })
 
 // Action creators are generated for each case reducer function
-export const { login } = authSlice.actions
+export const { persistedUser, clearPersistedUser } = authSlice.actions
 
 export default authSlice.reducer;

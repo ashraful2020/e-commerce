@@ -10,9 +10,9 @@ const rootReducer = combineReducers({
   auth: authSlice,
 })
 const persistConfig = {
-  key: 'root',
+  key: 'amarstore',
   storage,
-  // version: 1
+  version: 1
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

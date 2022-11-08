@@ -13,20 +13,19 @@ const Category = memo(() => {
       <div className="mb-6 bg-gradient-to-b from-neutral-300 via-stone-100 to-white md:-mt-32 lg:-mt-56">
         <div className="mx-auto lg:w-4/5">
           <div className="items-center justify-center md:flex">
-            <Product category="computer" img={img1} title="Computers & Accessories" />
-            <Product category="electronics" img={img2} title="Electronics " />
-            <Product category="health" none={true} img={img4} title="Health & Personal Care" />
+            <Product category="Earphones" img={img1} title="Computers & Accessories" />
+            <Product category="Men's Boot" img={img2} title="Electronics " />
+            <Product category="Bottle" none={true} img={img4} title="Health & Personal Care" />
           </div>
           <div className="items-center justify-center md:flex">
-            <Product category="fitness" img={img3} title="For your Fitness Needs" />
-            <Product category="pet" none={true} img={img5} title="Shop Pet supplies" />
+            <Product category="Bag" img={img3} title="For your Fitness Needs" />
+            <Product category="Cap" none={true} img={img5} title="Shop Pet supplies" />
           </div>
         </div>
       </div>
     </>
   );
-});
-
+}); 
 export default Category; 
 function Product({ img, title, none,category }) {
   return (

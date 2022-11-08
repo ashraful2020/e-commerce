@@ -21,7 +21,11 @@ const Navigation = () => {
   const [searchValue, setSearchValue] = useState('');
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    http.get("/product/search-product").then(res => setProducts(res))
+    let timeOut = setTimeout(() => {
+      http.get("/product/search-product").then(res => setProducts(res))
+    }, 10000);
+    return () => clearTimeout(timeOut)
+
   }, []);
 
   const handleChange = (e) => {
@@ -33,7 +37,7 @@ const Navigation = () => {
   }
 
 
-  const filteredProduct = products.filter((item) => {
+  const filteredProduct = products?.filter((item) => {
     const searchTerm = searchValue.toLowerCase();
     const name = item.name.toLowerCase();
     return (
@@ -43,11 +47,12 @@ const Navigation = () => {
     );
   })
     .slice(0, 6)
+  console.log("🚀 ~ file: navigation.js ~ line 49 ~ filteredProduct ~ filteredProduct", filteredProduct)
 
 
   return (
     <div>
-      <div className="relative my-2 hidden items-center justify-around md:flex">
+      <div className="relative my-2 hidden items-center justify-around md:flex mx-12">
         <Link to="/" className="w-40">
           <img className="h-20 w-20" src={logo} alt="logo" />
         </Link>

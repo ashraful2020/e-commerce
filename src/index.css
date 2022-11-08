@@ -13,6 +13,9 @@ body {
 /*  Group utilities */
 @layer components {
   .d-link {
-    @apply block text-gray-600 hover:text-black py-1;
+    @apply block py-1 text-gray-600 hover:text-black;
   }
+  .product-style {
+    @apply rounded-t-full rounded-l-full bg-gradient-to-r from-indigo-100 via-purple-100 to-pink-100 hover:bg-gradient-to-r hover:from-indigo-200 hover:via-purple-200 hover:to-pink-200;
+  } 
 }

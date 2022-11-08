@@ -14,7 +14,6 @@ const ProductCategory = memo(() => {
     http.get("/category").then((res) => setProductData(res));
   }, []);
 
-
   return (
     <div>
       <div className="items-center md:flex">
@@ -61,8 +60,8 @@ const ProductCategory = memo(() => {
           >
             {productData.map((data) => {
               return (
-                <SwiperSlide key={data._id}>
-                  <Link to={`/search-by-category?name=${data.name}`}>
+                <SwiperSlide key={data._id}> 
+                  <Link to={`/search-by-category?name=${data.name}`} state={data.name}>
                     <div className="mb-20">
                       <img src={data.img} alt="" srcSet="" />
                       <h1 className="text-3xl capitalize text-blue-800 -mt-20">{data?.name}</h1>
@@ -79,3 +78,4 @@ const ProductCategory = memo(() => {
 });
 
 export default ProductCategory;
+

@@ -1,6 +1,7 @@
 import React from 'react';
 import img from '../../../assets/ssl.png';
 import img1 from '../../../assets/logo.png';
+import { Link } from 'react-router-dom';
 const Footer = () => {
   return (
     <div className="static bottom-0 right-0 left-0 -z-10 m-0 mx-auto bg-black p-4 text-justify text-white md:flex lg:px-12">
@@ -34,12 +35,14 @@ const Footer = () => {
         <NewInfo
           title={'Accounts'}
           details={['My profile ', 'Check out ', 'order ', 'help and support ']}
-          links={['/', '/', '/', '/']}
         />
         <NewInfo
           title={'Category'}
-          details={['CategoryNa', 'CategoryNa', 'CategoryNa', 'CategoryNa']}
-          links={['/', '/', '/', '/']}
+          details={[
+            "Men's Sneaker",
+            "Bag ",
+            "Earphones",
+            "Bottle"]}
         />
       </div>
     </div>
@@ -48,6 +51,10 @@ const Footer = () => {
 
 export default Footer;
 
+// 
+// 
+// 
+// 
 function NewInfo({ title, details, links }) {
   return (
     <div>
@@ -55,9 +62,9 @@ function NewInfo({ title, details, links }) {
       <div className="py-5 font-sans text-gray-300">
         {details.map((info, _i) => {
           return (
-            <p key={_i} className="py-2 text-sm hover:underline">
-              {info}{' '}
-            </p>
+            <Link key={_i} to={`/search-by-category?name=${info}`} className="py-2 text-sm hover:underline block">
+              {info}
+            </Link>
           )
         })}
       </div>

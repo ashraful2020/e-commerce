@@ -1,7 +1,7 @@
 import axios from "axios";
 const axiosConfig = {
-  // baseURL: "https://amarstore.herokuapp.com/api/v1",
-  baseURL: "http://localhost:5000/api/v1",
+  baseURL: "https://amarstore.herokuapp.com/api/v1",
+  // baseURL: "http://localhost:5000/api/v1",
   timeout: 20000,
 
 };
@@ -14,7 +14,10 @@ class Request {
   async post(url, body) {
     return instance.post(url, body).then((res) => res.data);
   }
-  async update(url, body) {
+  async put(url, body) {
+    return instance.put(url, body).then((res) => res.data);
+  }
+  async updateByPatch(url, body) {
     return instance.patch(url, body).then((res) => res.data);
   }
   async delete(url, body) {

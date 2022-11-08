@@ -1,25 +1,24 @@
-import { useEffect, useState } from 'react';
 import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  signInWithPopup,
-  GoogleAuthProvider,
-  signOut,
-  onAuthStateChanged,
-  updateProfile,
+  createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword,
+  signInWithPopup, signOut, updateProfile
 } from 'firebase/auth';
-
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { clearPersistedUser } from '../features/authSlice';
+import { set_cart_product } from '../features/cartSlice';
 import initializeAuthentication from '../firebase/firebase.init';
 import http from '../services/http.service';
 initializeAuthentication();
 const useFirebase = () => {
+  const dispatch = useDispatch()
+  const navigate = useNavigate();
   const auth = getAuth();
   const googleProvider = new GoogleAuthProvider();
   const [user, setUser] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const [currentUser, setCurrentUser] = useState({});
 
+  const cart = useSelector(state => state.cart);
 
   const signInWithGoogle = () => {
     return signInWithPopup(auth, googleProvider);
@@ -40,37 +39,36 @@ const useFirebase = () => {
         const updateNameUser = { ...user, displayName: name };
         setUser(updateNameUser);
       })
-      .catch((error) => { });
+      .catch(error => console.log(error));
   };
 
   const handleLogOut = () => {
     signOut(auth)
       .then(() => {
+        http.put(`/user/${user.email}`, cart.product)
         setUser({});
+        dispatch(clearPersistedUser())
+        dispatch(set_cart_product({}))
+        navigate("/")
       })
-      .catch(error => { console.log(error) });
+      .catch(error => console.log(error));
   };
   useEffect(() => {
     setIsLoading(true)
     const unsubscribe = onAuthStateChanged(auth, user => {
-      if (user) {
-        setUser(user);
-      } else {
-        setUser({});
-      }
+      if (user) setUser(user);
+      else setUser({});
       setIsLoading(false)
     });
-
     return () => unsubscribe();
   }, [auth]);
- 
 
-  useEffect(() => {
-    http.get(`/user/${user?.email}`).then((res) => setCurrentUser(res));
-  }, [user?.email]);
+  console.log(cart.product)
 
+  // console.log(user.cart)
   // console.log(user?.photoURL);
   // console.log(user?.phoneNumber);
+  console.log(user.email)
   return {
     signInWithGoogle,
     signUpWithEmail,
@@ -81,7 +79,6 @@ const useFirebase = () => {
     saveUserName,
     isLoading,
     setIsLoading,
-    currentUser
   };
 };
 export default useFirebase;

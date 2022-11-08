@@ -7,6 +7,7 @@ const AdminRoute = memo(() => {
     const { handleLogOut } = useAuth();
     return (<>
         <h1 className='text-xl font-bold'>Manage Dashboard </h1>
+       
         <Link className='d-link' to="/account/my-profile">My Profile </Link>
         <Link className='d-link' to="/account/available-voucher">Available voucher</Link>
         <Link className='d-link' to="/account/accept-product">accept Product</Link>
